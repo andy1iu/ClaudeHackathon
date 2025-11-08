@@ -1,0 +1,4132 @@
+[
+  {
+    "patient_id": "SYNTH-001",
+    "problem_list": [
+      {
+        "condition": "Type 2 Diabetes",
+        "icd10": "E11.9",
+        "date_diagnosed": "2018-11-10"
+      },
+      {
+        "condition": "Hypertension",
+        "icd10": "I10",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Metformin",
+        "dosage": "500mg",
+        "frequency": "Daily"
+      },
+      {
+        "name": "Lisinopril",
+        "dosage": "10mg",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "A1c",
+        "value": "8.1%",
+        "date": "2023-11-15",
+        "unit": "%"
+      },
+      {
+        "test": "Blood Pressure",
+        "value": "145/92",
+        "date": "2023-11-15",
+        "unit": "mmHg"
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 2018
+      },
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 1995
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Sulfa drugs",
+        "reaction": "Stevens-Johnson syndrome",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "None",
+      "occupation": "Chef",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "85",
+        "conditions": [
+          "Osteoporosis",
+          "Hyperlipidemia"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "85",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "49",
+        "conditions": [
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "37",
+        "conditions": [
+          "Asthma"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "36",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 116,
+      "bp_diastolic": 86,
+      "heart_rate": 86,
+      "respiratory_rate": 18,
+      "temperature": 97.8,
+      "date": "2025-10-23"
+    }
+  },
+  {
+    "patient_id": "SYNTH-002",
+    "problem_list": [
+      {
+        "condition": "Asthma",
+        "icd10": "J45.909",
+        "date_diagnosed": "2014-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Albuterol",
+        "dosage": "inhaler",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Peak Flow",
+        "value": "380 L/min",
+        "date": "2023-10-20",
+        "unit": "L/min"
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Breast cancer"
+        ],
+        "age_at_death": 55,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease",
+          "Prostate cancer"
+        ],
+        "age_at_death": 55,
+        "cause_of_death": "Cancer"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 133,
+      "bp_diastolic": 88,
+      "heart_rate": 64,
+      "respiratory_rate": 19,
+      "temperature": 97.5,
+      "date": "2025-11-07"
+    }
+  },
+  {
+    "patient_id": "SYNTH-003",
+    "problem_list": [
+      {
+        "condition": "Osteoarthritis",
+        "icd10": "M19.90",
+        "date_diagnosed": "2022-11-09"
+      },
+      {
+        "condition": "Hypothyroidism",
+        "icd10": "E03.9",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Levothyroxine",
+        "dosage": "75mcg",
+        "frequency": "Three times daily"
+      },
+      {
+        "name": "Ibuprofen",
+        "dosage": "400mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "TSH",
+        "value": "3.2 mIU/L",
+        "date": "2023-11-01",
+        "unit": "mIU/L"
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 2023
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2011
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2007
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "None",
+      "occupation": "Accountant",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "70",
+        "conditions": [
+          "Hyperlipidemia",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "76",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "56",
+        "conditions": [
+          "Diabetes",
+          "Asthma"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 142,
+      "bp_diastolic": 94,
+      "heart_rate": 82,
+      "respiratory_rate": 18,
+      "temperature": 98.6,
+      "date": "2025-10-24"
+    }
+  },
+  {
+    "patient_id": "SYNTH-004",
+    "problem_list": [
+      {
+        "condition": "Anxiety Disorder",
+        "icd10": "F41.9",
+        "date_diagnosed": "2017-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Sertraline",
+        "dosage": "50mg",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [],
+    "allergies": [
+      {
+        "allergen": "Sulfa drugs",
+        "reaction": "Stevens-Johnson syndrome",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "75",
+        "conditions": [
+          "Hyperlipidemia",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Prostate cancer",
+          "Coronary artery disease"
+        ],
+        "age_at_death": 66,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Sister",
+        "age": "32",
+        "conditions": [
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 112,
+      "bp_diastolic": 91,
+      "heart_rate": 66,
+      "respiratory_rate": 13,
+      "temperature": 98.7,
+      "date": "2025-10-26"
+    }
+  },
+  {
+    "patient_id": "SYNTH-005",
+    "problem_list": [
+      {
+        "condition": "COPD",
+        "icd10": "J44.9",
+        "date_diagnosed": "2010-11-12"
+      },
+      {
+        "condition": "Osteoporosis",
+        "icd10": "M81.0",
+        "date_diagnosed": "2020-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Tiotropium",
+        "dosage": "inhaler",
+        "frequency": "Weekly"
+      },
+      {
+        "name": "Alendronate",
+        "dosage": "70mg",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Spirometry FEV1",
+        "value": "62%",
+        "date": "2023-09-15",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "None",
+      "occupation": "Nurse",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "68",
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Prostate cancer"
+        ],
+        "age_at_death": 69,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Sister",
+        "age": "64",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 112,
+      "bp_diastolic": 88,
+      "heart_rate": 80,
+      "respiratory_rate": 19,
+      "temperature": 98.5,
+      "date": "2025-10-11"
+    }
+  },
+  {
+    "patient_id": "SYNTH-006",
+    "problem_list": [
+      {
+        "condition": "Migraine",
+        "icd10": "G43.909",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Sumatriptan",
+        "dosage": "100mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 2004
+      },
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 1998
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 1997
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Mechanic",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Breast cancer"
+        ],
+        "age_at_death": 79,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 59,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Brother",
+        "age": "66",
+        "conditions": [
+          "Depression",
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "37",
+        "conditions": [
+          "Diabetes",
+          "Depression"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "69",
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 130,
+      "bp_diastolic": 77,
+      "heart_rate": 66,
+      "respiratory_rate": 12,
+      "temperature": 98.5,
+      "date": "2025-10-11"
+    }
+  },
+  {
+    "patient_id": "SYNTH-007",
+    "problem_list": [
+      {
+        "condition": "Fibromyalgia",
+        "icd10": "M79.7",
+        "date_diagnosed": "2021-11-09"
+      },
+      {
+        "condition": "Depression",
+        "icd10": "F32.9",
+        "date_diagnosed": "2018-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Duloxetine",
+        "dosage": "60mg",
+        "frequency": "As needed"
+      },
+      {
+        "name": "Cyclobenzaprine",
+        "dosage": "10mg",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [],
+    "allergies": [
+      {
+        "allergen": "Shellfish",
+        "reaction": "Anaphylaxis",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "72",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Prostate cancer",
+          "Coronary artery disease"
+        ],
+        "age_at_death": 73,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Sister",
+        "age": "33",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 117,
+      "bp_diastolic": 90,
+      "heart_rate": 61,
+      "respiratory_rate": 13,
+      "temperature": 98.2,
+      "date": "2025-10-22"
+    }
+  },
+  {
+    "patient_id": "SYNTH-008",
+    "problem_list": [
+      {
+        "condition": "Type 2 Diabetes",
+        "icd10": "E11.9",
+        "date_diagnosed": "2018-11-10"
+      },
+      {
+        "condition": "Hyperlipidemia",
+        "icd10": "E78.5",
+        "date_diagnosed": "2013-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Metformin",
+        "dosage": "1000mg",
+        "frequency": "As needed"
+      },
+      {
+        "name": "Atorvastatin",
+        "dosage": "20mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "A1c",
+        "value": "7.4%",
+        "date": "2023-10-28",
+        "unit": "%"
+      },
+      {
+        "test": "LDL",
+        "value": "115 mg/dL",
+        "date": "2023-10-28",
+        "unit": "mg/dL"
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 2018
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "None",
+      "occupation": "Teacher",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer",
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 56,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "82",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 116,
+      "bp_diastolic": 87,
+      "heart_rate": 88,
+      "respiratory_rate": 17,
+      "temperature": 98.0,
+      "date": "2025-10-20"
+    }
+  },
+  {
+    "patient_id": "SYNTH-009",
+    "problem_list": [
+      {
+        "condition": "PCOS",
+        "icd10": "E28.2",
+        "date_diagnosed": "2017-11-10"
+      },
+      {
+        "condition": "Prediabetes",
+        "icd10": "R73.03",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Metformin",
+        "dosage": "500mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Fasting Glucose",
+        "value": "108 mg/dL",
+        "date": "2023-11-10",
+        "unit": "mg/dL"
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "None",
+      "occupation": "Nurse",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 64,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "70",
+        "conditions": [
+          "Coronary artery disease",
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "40",
+        "conditions": [
+          "Asthma",
+          "Depression"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "68",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "70",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 111,
+      "bp_diastolic": 87,
+      "heart_rate": 69,
+      "respiratory_rate": 18,
+      "temperature": 97.6,
+      "date": "2025-10-28"
+    }
+  },
+  {
+    "patient_id": "SYNTH-010",
+    "problem_list": [
+      {
+        "condition": "GERD",
+        "icd10": "K21.9",
+        "date_diagnosed": "2015-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Omeprazole",
+        "dosage": "20mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "76",
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hyperlipidemia"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "76",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "56",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 146,
+      "bp_diastolic": 84,
+      "heart_rate": 87,
+      "respiratory_rate": 18,
+      "temperature": 97.7,
+      "date": "2025-10-21"
+    }
+  },
+  {
+    "patient_id": "SYNTH-011",
+    "problem_list": [
+      {
+        "condition": "Rheumatoid Arthritis",
+        "icd10": "M06.9",
+        "date_diagnosed": "2023-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Methotrexate",
+        "dosage": "15mg",
+        "frequency": "Three times daily"
+      },
+      {
+        "name": "Folic",
+        "dosage": "Acid",
+        "frequency": "As needed"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "CRP",
+        "value": "12 mg/L",
+        "date": "2023-11-05",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Retired",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 66,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 51,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Brother",
+        "age": "39",
+        "conditions": [
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "61",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 111,
+      "bp_diastolic": 72,
+      "heart_rate": 89,
+      "respiratory_rate": 17,
+      "temperature": 97.8,
+      "date": "2025-10-24"
+    }
+  },
+  {
+    "patient_id": "SYNTH-012",
+    "problem_list": [
+      {
+        "condition": "Sleep Apnea",
+        "icd10": "G47.33",
+        "date_diagnosed": "2018-11-10"
+      }
+    ],
+    "medication_list": [],
+    "recent_labs": [
+      {
+        "test": "Sleep Study AHI",
+        "value": "22 events/hr",
+        "date": "2023-08-20",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2020
+      },
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 2013
+      },
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2005
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Mechanic",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 72,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "68",
+        "conditions": [
+          "Hypertension",
+          "Type 2 Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 140,
+      "bp_diastolic": 74,
+      "heart_rate": 80,
+      "respiratory_rate": 12,
+      "temperature": 97.7,
+      "date": "2025-10-17"
+    }
+  },
+  {
+    "patient_id": "SYNTH-013",
+    "problem_list": [
+      {
+        "condition": "Hypertension",
+        "icd10": "I10",
+        "date_diagnosed": "2022-11-09"
+      },
+      {
+        "condition": "Atrial Fibrillation",
+        "icd10": "I48.91",
+        "date_diagnosed": "2020-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Metoprolol",
+        "dosage": "50mg",
+        "frequency": "As needed"
+      },
+      {
+        "name": "Apixaban",
+        "dosage": "5mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Blood Pressure",
+        "value": "138/85",
+        "date": "2023-11-12",
+        "unit": "mmHg"
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2014
+      },
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 2001
+      },
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 1995
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Mechanic",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "67",
+        "conditions": [
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Prostate cancer",
+          "Hypertension"
+        ],
+        "age_at_death": 63,
+        "cause_of_death": "Stroke"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 119,
+      "bp_diastolic": 76,
+      "heart_rate": 76,
+      "respiratory_rate": 17,
+      "temperature": 98.2,
+      "date": "2025-10-15"
+    }
+  },
+  {
+    "patient_id": "SYNTH-014",
+    "problem_list": [
+      {
+        "condition": "Ulcerative Colitis",
+        "icd10": "K51.90",
+        "date_diagnosed": "2016-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Mesalamine",
+        "dosage": "800mg",
+        "frequency": "As needed"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Calprotectin",
+        "value": "185 mcg/g",
+        "date": "2023-10-15",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Codeine",
+        "reaction": "Nausea and vomiting",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Hypertension"
+        ],
+        "age_at_death": 60,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Prostate cancer"
+        ],
+        "age_at_death": 59,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Brother",
+        "age": "35",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "31",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 112,
+      "bp_diastolic": 75,
+      "heart_rate": 68,
+      "respiratory_rate": 15,
+      "temperature": 97.8,
+      "date": "2025-10-11"
+    }
+  },
+  {
+    "patient_id": "SYNTH-015",
+    "problem_list": [
+      {
+        "condition": "Lupus",
+        "icd10": "M32.9",
+        "date_diagnosed": "2010-11-12"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Hydroxychloroquine",
+        "dosage": "200mg",
+        "frequency": "Weekly"
+      },
+      {
+        "name": "Prednisone",
+        "dosage": "5mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "ANA",
+        "value": "Positive 1:320",
+        "date": "2023-09-20",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Codeine",
+        "reaction": "Nausea and vomiting",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "None",
+      "occupation": "Lawyer",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 69,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "85",
+        "conditions": [
+          "Coronary artery disease"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 112,
+      "bp_diastolic": 81,
+      "heart_rate": 77,
+      "respiratory_rate": 15,
+      "temperature": 98.5,
+      "date": "2025-11-05"
+    }
+  },
+  {
+    "patient_id": "SYNTH-016",
+    "problem_list": [
+      {
+        "condition": "Epilepsy",
+        "icd10": "G40.909",
+        "date_diagnosed": "2023-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Levetiracetam",
+        "dosage": "500mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Drug Level",
+        "value": "22 mcg/mL",
+        "date": "2023-10-05",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Shellfish",
+        "reaction": "Anaphylaxis",
+        "severity": "Severe"
+      },
+      {
+        "allergen": "Penicillin",
+        "reaction": "Rash and hives",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Mechanic",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 74,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "78",
+        "conditions": [
+          "Coronary artery disease",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "45",
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "56",
+        "conditions": [
+          "Asthma"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "70",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 120,
+      "bp_diastolic": 70,
+      "heart_rate": 78,
+      "respiratory_rate": 18,
+      "temperature": 97.8,
+      "date": "2025-10-29"
+    }
+  },
+  {
+    "patient_id": "SYNTH-017",
+    "problem_list": [
+      {
+        "condition": "Multiple Sclerosis",
+        "icd10": "G35",
+        "date_diagnosed": "2011-11-12"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Glatiramer",
+        "dosage": "acetate",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "MRI Brain",
+        "value": "Stable lesions",
+        "date": "2023-07-15",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Appendectomy",
+        "indication": "Acute appendicitis",
+        "year": 1997
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "73",
+        "conditions": [
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ],
+        "age_at_death": 64,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Sister",
+        "age": "63",
+        "conditions": [
+          "Diabetes",
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 148,
+      "bp_diastolic": 90,
+      "heart_rate": 84,
+      "respiratory_rate": 13,
+      "temperature": 98.5,
+      "date": "2025-10-20"
+    }
+  },
+  {
+    "patient_id": "SYNTH-018",
+    "problem_list": [
+      {
+        "condition": "Chronic Kidney Disease Stage 3",
+        "icd10": "N18.3",
+        "date_diagnosed": "2021-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Lisinopril",
+        "dosage": "20mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "eGFR",
+        "value": "48 mL/min",
+        "date": "2023-11-08",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 2023
+      },
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 2000
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Sulfa drugs",
+        "reaction": "Stevens-Johnson syndrome",
+        "severity": "Severe"
+      },
+      {
+        "allergen": "Iodine contrast",
+        "reaction": "Urticaria",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 58,
+        "cause_of_death": "Natural causes"
+      },
+      {
+        "relation": "Father",
+        "age": "81",
+        "conditions": [
+          "Type 2 Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 115,
+      "bp_diastolic": 88,
+      "heart_rate": 81,
+      "respiratory_rate": 16,
+      "temperature": 98.0,
+      "date": "2025-11-03"
+    }
+  },
+  {
+    "patient_id": "SYNTH-019",
+    "problem_list": [
+      {
+        "condition": "Psoriasis",
+        "icd10": "L40.9",
+        "date_diagnosed": "2022-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Apremilast",
+        "dosage": "30mg",
+        "frequency": "As needed"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2022
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2020
+      },
+      {
+        "procedure": "Hernia repair",
+        "indication": "Inguinal hernia",
+        "year": 2018
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Iodine contrast",
+        "reaction": "Urticaria",
+        "severity": "Moderate"
+      },
+      {
+        "allergen": "Penicillin",
+        "reaction": "Rash and hives",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Retired",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "83",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "85",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "66",
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "43",
+        "conditions": [
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 124,
+      "bp_diastolic": 88,
+      "heart_rate": 73,
+      "respiratory_rate": 17,
+      "temperature": 97.6,
+      "date": "2025-10-15"
+    }
+  },
+  {
+    "patient_id": "SYNTH-020",
+    "problem_list": [
+      {
+        "condition": "Chronic Back Pain",
+        "icd10": "M54.5",
+        "date_diagnosed": "2017-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Gabapentin",
+        "dosage": "300mg",
+        "frequency": "As needed"
+      }
+    ],
+    "recent_labs": [],
+    "allergies": [
+      {
+        "allergen": "Penicillin",
+        "reaction": "Rash and hives",
+        "severity": "Moderate"
+      },
+      {
+        "allergen": "Aspirin",
+        "reaction": "Bronchospasm",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "72",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "78",
+        "conditions": [
+          "Type 2 Diabetes",
+          "Coronary artery disease"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "54",
+        "conditions": [
+          "Asthma",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "59",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 129,
+      "bp_diastolic": 71,
+      "heart_rate": 71,
+      "respiratory_rate": 13,
+      "temperature": 98.0,
+      "date": "2025-10-25"
+    }
+  },
+  {
+    "patient_id": "SYNTH-021",
+    "problem_list": [
+      {
+        "condition": "Parkinson's Disease",
+        "icd10": "G20",
+        "date_diagnosed": "2018-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Carbidopa-Levodopa",
+        "dosage": "25-100mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2014
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Retired",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 75,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Prostate cancer"
+        ],
+        "age_at_death": 56,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Sister",
+        "age": "31",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "31",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 132,
+      "bp_diastolic": 82,
+      "heart_rate": 70,
+      "respiratory_rate": 17,
+      "temperature": 98.5,
+      "date": "2025-10-16"
+    }
+  },
+  {
+    "patient_id": "SYNTH-022",
+    "problem_list": [
+      {
+        "condition": "Sickle Cell Disease",
+        "icd10": "D57.1",
+        "date_diagnosed": "2018-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Hydroxyurea",
+        "dosage": "500mg",
+        "frequency": "As needed"
+      },
+      {
+        "name": "Folic",
+        "dosage": "Acid",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Hemoglobin",
+        "value": "9.2 g/dL",
+        "date": "2023-11-01",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2006
+      },
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 1995
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "None",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Breast cancer"
+        ],
+        "age_at_death": 78,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 52,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Brother",
+        "age": "40",
+        "conditions": [
+          "Asthma"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 128,
+      "bp_diastolic": 85,
+      "heart_rate": 74,
+      "respiratory_rate": 14,
+      "temperature": 98.8,
+      "date": "2025-10-13"
+    }
+  },
+  {
+    "patient_id": "SYNTH-023",
+    "problem_list": [
+      {
+        "condition": "Celiac Disease",
+        "icd10": "K90.0",
+        "date_diagnosed": "2016-11-10"
+      }
+    ],
+    "medication_list": [],
+    "recent_labs": [
+      {
+        "test": "tTG-IgA",
+        "value": "Negative",
+        "date": "2023-09-10",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 2012
+      },
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 2010
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Hypertension"
+        ],
+        "age_at_death": 65,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 63,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Sister",
+        "age": "47",
+        "conditions": [
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 113,
+      "bp_diastolic": 82,
+      "heart_rate": 88,
+      "respiratory_rate": 20,
+      "temperature": 98.5,
+      "date": "2025-10-23"
+    }
+  },
+  {
+    "patient_id": "SYNTH-024",
+    "problem_list": [
+      {
+        "condition": "Crohn's Disease",
+        "icd10": "K50.90",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Adalimumab",
+        "dosage": "injection",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "CRP",
+        "value": "8 mg/L",
+        "date": "2023-10-22",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Appendectomy",
+        "indication": "Acute appendicitis",
+        "year": 2019
+      },
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 2015
+      },
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 1997
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Aspirin",
+        "reaction": "Bronchospasm",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "None",
+      "occupation": "Lawyer",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 70,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ],
+        "age_at_death": 68,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Brother",
+        "age": "58",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 143,
+      "bp_diastolic": 85,
+      "heart_rate": 83,
+      "respiratory_rate": 15,
+      "temperature": 97.8,
+      "date": "2025-10-24"
+    }
+  },
+  {
+    "patient_id": "SYNTH-025",
+    "problem_list": [
+      {
+        "condition": "Bipolar Disorder",
+        "icd10": "F31.9",
+        "date_diagnosed": "2016-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Lithium",
+        "dosage": "300mg",
+        "frequency": "Daily"
+      },
+      {
+        "name": "Quetiapine",
+        "dosage": "100mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Lithium Level",
+        "value": "0.8 mEq/L",
+        "date": "2023-11-03",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 1998
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Mechanic",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "74",
+        "conditions": [
+          "Osteoporosis"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease",
+          "Prostate cancer"
+        ],
+        "age_at_death": 50,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Brother",
+        "age": "42",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "32",
+        "conditions": [
+          "Asthma"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "31",
+        "conditions": [
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 124,
+      "bp_diastolic": 70,
+      "heart_rate": 66,
+      "respiratory_rate": 20,
+      "temperature": 98.3,
+      "date": "2025-11-05"
+    }
+  },
+  {
+    "patient_id": "SYNTH-026",
+    "problem_list": [
+      {
+        "condition": "HIV",
+        "icd10": "B20",
+        "date_diagnosed": "2021-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Bictegravir-emtricitabine-tenofovir",
+        "dosage": null,
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "CD4 Count",
+        "value": "520 cells/mm3",
+        "date": "2023-10-18",
+        "unit": ""
+      },
+      {
+        "test": "Viral Load",
+        "value": "Undetectable",
+        "date": "2023-10-18",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 2013
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Software Engineer",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "66",
+        "conditions": [
+          "Hypertension",
+          "Osteoporosis"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 67,
+        "cause_of_death": "Pneumonia"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 134,
+      "bp_diastolic": 84,
+      "heart_rate": 76,
+      "respiratory_rate": 15,
+      "temperature": 97.9,
+      "date": "2025-10-17"
+    }
+  },
+  {
+    "patient_id": "SYNTH-027",
+    "problem_list": [
+      {
+        "condition": "Endometriosis",
+        "icd10": "N80.9",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Norethindrone",
+        "dosage": "5mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 2022
+      },
+      {
+        "procedure": "Hernia repair",
+        "indication": "Inguinal hernia",
+        "year": 2020
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Nurse",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "85",
+        "conditions": [
+          "Hyperlipidemia",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "86",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "68",
+        "conditions": [
+          "Diabetes",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "53",
+        "conditions": [
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "68",
+        "conditions": [
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 146,
+      "bp_diastolic": 92,
+      "heart_rate": 77,
+      "respiratory_rate": 19,
+      "temperature": 98.2,
+      "date": "2025-10-12"
+    }
+  },
+  {
+    "patient_id": "SYNTH-028",
+    "problem_list": [
+      {
+        "condition": "Benign Prostatic Hyperplasia",
+        "icd10": "N40.0",
+        "date_diagnosed": "2023-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Tamsulosin",
+        "dosage": "0.4mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "PSA",
+        "value": "2.1 ng/mL",
+        "date": "2023-09-25",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2001
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Nurse",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 69,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "87",
+        "conditions": [
+          "Coronary artery disease",
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "43",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 132,
+      "bp_diastolic": 91,
+      "heart_rate": 89,
+      "respiratory_rate": 13,
+      "temperature": 98.7,
+      "date": "2025-10-16"
+    }
+  },
+  {
+    "patient_id": "SYNTH-029",
+    "problem_list": [
+      {
+        "condition": "Chronic Hepatitis C",
+        "icd10": "B18.2",
+        "date_diagnosed": "2017-11-10"
+      }
+    ],
+    "medication_list": [],
+    "recent_labs": [
+      {
+        "test": "HCV RNA",
+        "value": "Undetectable",
+        "date": "2023-08-30",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2019
+      },
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2000
+      },
+      {
+        "procedure": "Appendectomy",
+        "indication": "Acute appendicitis",
+        "year": 1997
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer",
+          "Alzheimer's disease"
+        ],
+        "age_at_death": 57,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 70,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Sister",
+        "age": "42",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "51",
+        "conditions": [
+          "Diabetes",
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 138,
+      "bp_diastolic": 78,
+      "heart_rate": 69,
+      "respiratory_rate": 16,
+      "temperature": 98.4,
+      "date": "2025-11-04"
+    }
+  },
+  {
+    "patient_id": "SYNTH-030",
+    "problem_list": [
+      {
+        "condition": "Peripheral Neuropathy",
+        "icd10": "G62.9",
+        "date_diagnosed": "2018-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Pregabalin",
+        "dosage": "75mg",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 2017
+      },
+      {
+        "procedure": "Cholecystectomy",
+        "indication": "Cholelithiasis",
+        "year": 1996
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Aspirin",
+        "reaction": "Bronchospasm",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Accountant",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "80",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ],
+        "age_at_death": 54,
+        "cause_of_death": "Pneumonia"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 110,
+      "bp_diastolic": 89,
+      "heart_rate": 73,
+      "respiratory_rate": 15,
+      "temperature": 97.8,
+      "date": "2025-10-28"
+    }
+  },
+  {
+    "patient_id": "SYNTH-031",
+    "problem_list": [
+      {
+        "condition": "Heart Failure",
+        "icd10": "I50.9",
+        "date_diagnosed": "2023-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Carvedilol",
+        "dosage": "6.25mg",
+        "frequency": "Daily"
+      },
+      {
+        "name": "Furosemide",
+        "dosage": "40mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "BNP",
+        "value": "320 pg/mL",
+        "date": "2023-11-02",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2016
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "80",
+        "conditions": [
+          "Type 2 Diabetes",
+          "Osteoporosis"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 73,
+        "cause_of_death": "Cancer"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 111,
+      "bp_diastolic": 73,
+      "heart_rate": 79,
+      "respiratory_rate": 13,
+      "temperature": 98.4,
+      "date": "2025-11-04"
+    }
+  },
+  {
+    "patient_id": "SYNTH-032",
+    "problem_list": [
+      {
+        "condition": "Glaucoma",
+        "icd10": "H40.9",
+        "date_diagnosed": "2020-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Latanoprost",
+        "dosage": "eye",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Intraocular Pressure",
+        "value": "18 mmHg",
+        "date": "2023-10-12",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      },
+      {
+        "allergen": "Sulfa drugs",
+        "reaction": "Stevens-Johnson syndrome",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Chef",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "74",
+        "conditions": [
+          "Osteoporosis",
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "88",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "59",
+        "conditions": [
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "70",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "55",
+        "conditions": [
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 147,
+      "bp_diastolic": 79,
+      "heart_rate": 70,
+      "respiratory_rate": 16,
+      "temperature": 98.8,
+      "date": "2025-10-16"
+    }
+  },
+  {
+    "patient_id": "SYNTH-033",
+    "problem_list": [
+      {
+        "condition": "Anemia",
+        "icd10": "D64.9",
+        "date_diagnosed": "2021-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Ferrous",
+        "dosage": "sulfate",
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Hemoglobin",
+        "value": "10.8 g/dL",
+        "date": "2023-11-06",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 1997
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Retired",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Hypertension"
+        ],
+        "age_at_death": 71,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "77",
+        "conditions": [
+          "Hypertension",
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "58",
+        "conditions": [
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "36",
+        "conditions": [
+          "Depression",
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 128,
+      "bp_diastolic": 74,
+      "heart_rate": 78,
+      "respiratory_rate": 18,
+      "temperature": 97.6,
+      "date": "2025-10-24"
+    }
+  },
+  {
+    "patient_id": "SYNTH-034",
+    "problem_list": [
+      {
+        "condition": "Gout",
+        "icd10": "M10.9",
+        "date_diagnosed": "2023-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Allopurinol",
+        "dosage": "300mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Uric Acid",
+        "value": "6.2 mg/dL",
+        "date": "2023-10-30",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Teacher",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer",
+          "Hypertension"
+        ],
+        "age_at_death": 60,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "70",
+        "conditions": [
+          "Type 2 Diabetes",
+          "Coronary artery disease"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "39",
+        "conditions": [
+          "Diabetes"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "39",
+        "conditions": [
+          "Hypertension",
+          "Depression"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "31",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 114,
+      "bp_diastolic": 71,
+      "heart_rate": 79,
+      "respiratory_rate": 17,
+      "temperature": 98.4,
+      "date": "2025-10-18"
+    }
+  },
+  {
+    "patient_id": "SYNTH-035",
+    "problem_list": [
+      {
+        "condition": "Thyroid Nodules",
+        "icd10": "E04.9",
+        "date_diagnosed": "2014-11-11"
+      }
+    ],
+    "medication_list": [],
+    "recent_labs": [
+      {
+        "test": "Ultrasound Thyroid",
+        "value": "3mm nodule, benign features",
+        "date": "2023-09-05",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 2000
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Teacher",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "71",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "83",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "66",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "39",
+        "conditions": [
+          "Asthma"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 116,
+      "bp_diastolic": 72,
+      "heart_rate": 77,
+      "respiratory_rate": 20,
+      "temperature": 98.1,
+      "date": "2025-10-30"
+    }
+  },
+  {
+    "patient_id": "SYNTH-036",
+    "problem_list": [
+      {
+        "condition": "Coronary Artery Disease",
+        "icd10": "I25.10",
+        "date_diagnosed": "2012-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Aspirin",
+        "dosage": "81mg",
+        "frequency": "Weekly"
+      },
+      {
+        "name": "Atorvastatin",
+        "dosage": "40mg",
+        "frequency": "Twice daily"
+      },
+      {
+        "name": "Metoprolol",
+        "dosage": "25mg",
+        "frequency": "Daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "LDL",
+        "value": "82 mg/dL",
+        "date": "2023-11-04",
+        "unit": "mg/dL"
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Lawyer",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "78",
+        "conditions": [
+          "Hyperlipidemia",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "76",
+        "conditions": [
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 119,
+      "bp_diastolic": 79,
+      "heart_rate": 78,
+      "respiratory_rate": 14,
+      "temperature": 98.2,
+      "date": "2025-10-26"
+    }
+  },
+  {
+    "patient_id": "SYNTH-037",
+    "problem_list": [
+      {
+        "condition": "Menopause",
+        "icd10": "N95.1",
+        "date_diagnosed": "2013-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Estradiol",
+        "dosage": "patch",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Hernia repair",
+        "indication": "Inguinal hernia",
+        "year": 2011
+      },
+      {
+        "procedure": "Appendectomy",
+        "indication": "Acute appendicitis",
+        "year": 2007
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Iodine contrast",
+        "reaction": "Urticaria",
+        "severity": "Moderate"
+      },
+      {
+        "allergen": "Aspirin",
+        "reaction": "Bronchospasm",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Accountant",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 56,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "85",
+        "conditions": [
+          "Hypertension",
+          "Coronary artery disease"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "53",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "66",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 145,
+      "bp_diastolic": 76,
+      "heart_rate": 79,
+      "respiratory_rate": 14,
+      "temperature": 98.6,
+      "date": "2025-10-29"
+    }
+  },
+  {
+    "patient_id": "SYNTH-038",
+    "problem_list": [
+      {
+        "condition": "Pancreatitis History",
+        "icd10": "K85.9",
+        "date_diagnosed": "2022-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Pancrelipase",
+        "dosage": null,
+        "frequency": "Twice daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Lipase",
+        "value": "45 U/L",
+        "date": "2023-10-25",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2017
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Never smoker",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "81",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease",
+          "Hypertension"
+        ],
+        "age_at_death": 62,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Sister",
+        "age": "43",
+        "conditions": [
+          "Depression",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "43",
+        "conditions": [
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 123,
+      "bp_diastolic": 91,
+      "heart_rate": 73,
+      "respiratory_rate": 20,
+      "temperature": 98.4,
+      "date": "2025-10-28"
+    }
+  },
+  {
+    "patient_id": "SYNTH-039",
+    "problem_list": [
+      {
+        "condition": "Breast Cancer Survivor",
+        "icd10": "Z85.3",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Tamoxifen",
+        "dosage": "20mg",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Mammogram",
+        "value": "No recurrence",
+        "date": "2023-08-15",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2015
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Penicillin",
+        "reaction": "Rash and hives",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Accountant",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "75",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Prostate cancer"
+        ],
+        "age_at_death": 75,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Brother",
+        "age": "31",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "33",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "60",
+        "conditions": [
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 140,
+      "bp_diastolic": 88,
+      "heart_rate": 75,
+      "respiratory_rate": 17,
+      "temperature": 98.0,
+      "date": "2025-11-05"
+    }
+  },
+  {
+    "patient_id": "SYNTH-040",
+    "problem_list": [
+      {
+        "condition": "Allergic Rhinitis",
+        "icd10": "J30.9",
+        "date_diagnosed": "2021-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Fluticasone",
+        "dosage": "nasal",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 2004
+      },
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 1999
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Shellfish",
+        "reaction": "Anaphylaxis",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 79,
+        "cause_of_death": "Natural causes"
+      },
+      {
+        "relation": "Father",
+        "age": "75",
+        "conditions": [
+          "Coronary artery disease",
+          "Hypertension"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "67",
+        "conditions": [
+          "Diabetes",
+          "Depression"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "44",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "44",
+        "conditions": [
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 113,
+      "bp_diastolic": 90,
+      "heart_rate": 87,
+      "respiratory_rate": 20,
+      "temperature": 98.3,
+      "date": "2025-10-14"
+    }
+  },
+  {
+    "patient_id": "SYNTH-041",
+    "problem_list": [
+      {
+        "condition": "Diverticulosis",
+        "icd10": "K57.30",
+        "date_diagnosed": "2014-11-11"
+      }
+    ],
+    "medication_list": [],
+    "recent_labs": [
+      {
+        "test": "Colonoscopy",
+        "value": "Multiple diverticula, no inflammation",
+        "date": "2023-06-20",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 2003
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Teacher",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "age_at_death": 80,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 60,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Sister",
+        "age": "68",
+        "conditions": [
+          "Hypertension",
+          "Asthma"
+        ]
+      },
+      {
+        "relation": "Brother",
+        "age": "53",
+        "conditions": [
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 121,
+      "bp_diastolic": 75,
+      "heart_rate": 90,
+      "respiratory_rate": 15,
+      "temperature": 97.8,
+      "date": "2025-11-02"
+    }
+  },
+  {
+    "patient_id": "SYNTH-042",
+    "problem_list": [
+      {
+        "condition": "Restless Leg Syndrome",
+        "icd10": "G25.81",
+        "date_diagnosed": "2014-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Ropinirole",
+        "dosage": "0.5mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Ferritin",
+        "value": "42 ng/mL",
+        "date": "2023-10-08",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 2009
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2006
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Iodine contrast",
+        "reaction": "Urticaria",
+        "severity": "Moderate"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension",
+          "Breast cancer"
+        ],
+        "age_at_death": 79,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 58,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Brother",
+        "age": "69",
+        "conditions": [
+          "Asthma",
+          "Hypertension"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 125,
+      "bp_diastolic": 75,
+      "heart_rate": 64,
+      "respiratory_rate": 12,
+      "temperature": 97.8,
+      "date": "2025-10-31"
+    }
+  },
+  {
+    "patient_id": "SYNTH-043",
+    "problem_list": [
+      {
+        "condition": "Chronic UTI",
+        "icd10": "N39.0",
+        "date_diagnosed": "2016-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Nitrofurantoin",
+        "dosage": "prophylaxis",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Urinalysis",
+        "value": "Negative",
+        "date": "2023-11-07",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Codeine",
+        "reaction": "Nausea and vomiting",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Hypertension"
+        ],
+        "age_at_death": 64,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Father",
+        "age": "83",
+        "conditions": [
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Sister",
+        "age": "68",
+        "conditions": [
+          "Depression",
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 143,
+      "bp_diastolic": 92,
+      "heart_rate": 86,
+      "respiratory_rate": 20,
+      "temperature": 97.8,
+      "date": "2025-11-06"
+    }
+  },
+  {
+    "patient_id": "SYNTH-044",
+    "problem_list": [
+      {
+        "condition": "Esophageal Varices",
+        "icd10": "I85.00",
+        "date_diagnosed": "2021-11-09"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Propranolol",
+        "dosage": "40mg",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Endoscopy",
+        "value": "Grade 1 varices, stable",
+        "date": "2023-07-10",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cesarean section",
+        "indication": "Obstetric delivery",
+        "year": 2023
+      },
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 2014
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (1 pack per day, 20 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Retired",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "81",
+        "conditions": [
+          "Type 2 Diabetes"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 52,
+        "cause_of_death": "Stroke"
+      },
+      {
+        "relation": "Sister",
+        "age": "45",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "58",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 125,
+      "bp_diastolic": 74,
+      "heart_rate": 84,
+      "respiratory_rate": 19,
+      "temperature": 98.0,
+      "date": "2025-11-06"
+    }
+  },
+  {
+    "patient_id": "SYNTH-045",
+    "problem_list": [
+      {
+        "condition": "Polycystic Ovary Syndrome",
+        "icd10": "E28.2",
+        "date_diagnosed": "2014-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Metformin",
+        "dosage": "850mg",
+        "frequency": "Three times daily"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Testosterone",
+        "value": "65 ng/dL",
+        "date": "2023-09-28",
+        "unit": ""
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Occasional (1-2 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "71",
+        "conditions": []
+      },
+      {
+        "relation": "Father",
+        "age": "71",
+        "conditions": []
+      },
+      {
+        "relation": "Sister",
+        "age": "52",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "70",
+        "conditions": []
+      },
+      {
+        "relation": "Brother",
+        "age": "50",
+        "conditions": [
+          "Depression",
+          "Asthma"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 126,
+      "bp_diastolic": 83,
+      "heart_rate": 88,
+      "respiratory_rate": 14,
+      "temperature": 98.1,
+      "date": "2025-10-14"
+    }
+  },
+  {
+    "patient_id": "SYNTH-046",
+    "problem_list": [
+      {
+        "condition": "Peripheral Arterial Disease",
+        "icd10": "I73.9",
+        "date_diagnosed": "2013-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Cilostazol",
+        "dosage": "100mg",
+        "frequency": "Weekly"
+      },
+      {
+        "name": "Aspirin",
+        "dosage": "81mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "ABI",
+        "value": "0.72",
+        "date": "2023-08-22",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Hernia repair",
+        "indication": "Inguinal hernia",
+        "year": 1998
+      },
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 1998
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Iodine contrast",
+        "reaction": "Urticaria",
+        "severity": "Moderate"
+      },
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "None",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives alone"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "77",
+        "conditions": [
+          "Osteoporosis",
+          "Hyperlipidemia"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 55,
+        "cause_of_death": "Pneumonia"
+      },
+      {
+        "relation": "Sister",
+        "age": "58",
+        "conditions": [
+          "Diabetes"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 113,
+      "bp_diastolic": 81,
+      "heart_rate": 83,
+      "respiratory_rate": 16,
+      "temperature": 97.6,
+      "date": "2025-11-06"
+    }
+  },
+  {
+    "patient_id": "SYNTH-047",
+    "problem_list": [
+      {
+        "condition": "Macular Degeneration",
+        "icd10": "H35.30",
+        "date_diagnosed": "2012-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "AREDS2",
+        "dosage": "vitamins",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Eye Exam",
+        "value": "Dry AMD both eyes",
+        "date": "2023-10-03",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Total hip replacement",
+        "indication": "Severe osteoarthritis",
+        "year": 2023
+      },
+      {
+        "procedure": "Tonsillectomy",
+        "indication": "Recurrent tonsillitis",
+        "year": 2016
+      },
+      {
+        "procedure": "Coronary artery bypass",
+        "indication": "Coronary artery disease",
+        "year": 1998
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Retired",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Alzheimer's disease",
+          "Hypertension"
+        ],
+        "age_at_death": 80,
+        "cause_of_death": "Cancer"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Coronary artery disease"
+        ],
+        "age_at_death": 63,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Brother",
+        "age": "68",
+        "conditions": []
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 131,
+      "bp_diastolic": 86,
+      "heart_rate": 65,
+      "respiratory_rate": 13,
+      "temperature": 98.5,
+      "date": "2025-10-17"
+    }
+  },
+  {
+    "patient_id": "SYNTH-048",
+    "problem_list": [
+      {
+        "condition": "Plantar Fasciitis",
+        "icd10": "M72.2",
+        "date_diagnosed": "2019-11-10"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Ibuprofen",
+        "dosage": "600mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [],
+    "surgical_history": [
+      {
+        "procedure": "Appendectomy",
+        "indication": "Acute appendicitis",
+        "year": 2013
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "No known drug allergies",
+        "reaction": "None",
+        "severity": "None"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives with family"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "73",
+        "conditions": [
+          "Osteoporosis"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 60,
+        "cause_of_death": "Pneumonia"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 148,
+      "bp_diastolic": 78,
+      "heart_rate": 71,
+      "respiratory_rate": 17,
+      "temperature": 98.0,
+      "date": "2025-10-23"
+    }
+  },
+  {
+    "patient_id": "SYNTH-049",
+    "problem_list": [
+      {
+        "condition": "Dementia",
+        "icd10": "F03.90",
+        "date_diagnosed": "2012-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Donepezil",
+        "dosage": "10mg",
+        "frequency": "Twice daily"
+      },
+      {
+        "name": "Memantine",
+        "dosage": "10mg",
+        "frequency": "Weekly"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "MMSE",
+        "value": "18/30",
+        "date": "2023-09-12",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2024
+      },
+      {
+        "procedure": "Hysterectomy",
+        "indication": "Uterine fibroids",
+        "year": 2003
+      },
+      {
+        "procedure": "Hernia repair",
+        "indication": "Inguinal hernia",
+        "year": 2000
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      },
+      {
+        "allergen": "Shellfish",
+        "reaction": "Anaphylaxis",
+        "severity": "Severe"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Former smoker (quit 5 years ago, 10 pack-year history)",
+      "alcohol": "Moderate (3-7 drinks per week)",
+      "occupation": "Sales Manager",
+      "living_situation": "Lives in assisted living"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "deceased",
+        "conditions": [
+          "Breast cancer",
+          "Hypertension"
+        ],
+        "age_at_death": 66,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 71,
+        "cause_of_death": "Heart attack"
+      },
+      {
+        "relation": "Sister",
+        "age": "44",
+        "conditions": [
+          "Depression"
+        ]
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 129,
+      "bp_diastolic": 84,
+      "heart_rate": 73,
+      "respiratory_rate": 20,
+      "temperature": 98.1,
+      "date": "2025-11-02"
+    }
+  },
+  {
+    "patient_id": "SYNTH-050",
+    "problem_list": [
+      {
+        "condition": "Substance Use Disorder",
+        "icd10": "F10.20",
+        "date_diagnosed": "2013-11-11"
+      }
+    ],
+    "medication_list": [
+      {
+        "name": "Naltrexone",
+        "dosage": "50mg",
+        "frequency": "As needed"
+      }
+    ],
+    "recent_labs": [
+      {
+        "test": "Liver Function",
+        "value": "AST 42, ALT 38",
+        "date": "2023-10-19",
+        "unit": ""
+      }
+    ],
+    "surgical_history": [
+      {
+        "procedure": "Cataract surgery",
+        "indication": "Visual impairment",
+        "year": 2020
+      },
+      {
+        "procedure": "Knee arthroscopy",
+        "indication": "Meniscal tear",
+        "year": 1998
+      }
+    ],
+    "allergies": [
+      {
+        "allergen": "Latex",
+        "reaction": "Contact dermatitis",
+        "severity": "Mild"
+      }
+    ],
+    "social_history": {
+      "tobacco": "Current smoker (half pack per day)",
+      "alcohol": "Social drinker (2-3 drinks per week)",
+      "occupation": "Construction Worker",
+      "living_situation": "Lives with spouse"
+    },
+    "family_history": [
+      {
+        "relation": "Mother",
+        "age": "76",
+        "conditions": [
+          "Hypertension",
+          "Hyperlipidemia"
+        ]
+      },
+      {
+        "relation": "Father",
+        "age": "deceased",
+        "conditions": [
+          "Hypertension"
+        ],
+        "age_at_death": 58,
+        "cause_of_death": "Heart attack"
+      }
+    ],
+    "vital_signs": {
+      "bp_systolic": 126,
+      "bp_diastolic": 87,
+      "heart_rate": 86,
+      "respiratory_rate": 14,
+      "temperature": 98.6,
+      "date": "2025-11-03"
+    }
+  }
+]

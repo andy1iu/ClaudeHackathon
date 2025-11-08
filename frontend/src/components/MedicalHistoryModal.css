@@ -1,0 +1,429 @@
+.medical-history-modal {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.medical-history-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px 16px 0 0;
+  color: white;
+}
+
+.medical-history-modal .modal-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.medical-history-modal .patient-info {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.medical-history-modal .close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+  padding: 0;
+}
+
+.medical-history-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.medical-history-modal .modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+  background: #f9fafb;
+}
+
+.medical-history-modal .loading-state,
+.medical-history-modal .error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.medical-history-modal .spinner {
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.medical-history-modal .error-state p {
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+.medical-history-modal .retry-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.medical-history-modal .retry-btn:hover {
+  background: #5568d3;
+}
+
+.medical-history-modal .ehr-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.medical-history-modal .ehr-section:last-child {
+  margin-bottom: 0;
+}
+
+.medical-history-modal .ehr-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #667eea;
+}
+
+.medical-history-modal .info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.medical-history-modal .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.medical-history-modal .info-item .label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.medical-history-modal .info-item .value {
+  font-size: 1rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.medical-history-modal .problem-list {
+  display: grid;
+  gap: 12px;
+}
+
+.medical-history-modal .problem-item {
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.medical-history-modal .problem-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.medical-history-modal .problem-code {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+}
+
+.medical-history-modal .medication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.medical-history-modal .medication-item {
+  background: #f3f4f6;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  color: #1f2937;
+  border-left: 3px solid #10b981;
+}
+
+/* Enhanced medication list */
+.medical-history-modal .medication-list-enhanced {
+  display: grid;
+  gap: 12px;
+}
+
+.medical-history-modal .medication-item-enhanced {
+  background: #f3f4f6;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.medical-history-modal .medication-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.medical-history-modal .medication-details {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.medical-history-modal .medication-dosage {
+  font-weight: 500;
+  color: #374151;
+}
+
+.medical-history-modal .medication-frequency {
+  color: #6b7280;
+}
+
+/* Allergy Section */
+.medical-history-modal .allergy-list {
+  display: grid;
+  gap: 12px;
+}
+
+.medical-history-modal .allergy-item {
+  background: #fef3c7;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+}
+
+.medical-history-modal .allergy-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 6px;
+}
+
+.medical-history-modal .allergy-details {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.medical-history-modal .allergy-reaction {
+  color: #78350f;
+}
+
+.medical-history-modal .allergy-severity {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.medical-history-modal .severity-mild {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.medical-history-modal .severity-moderate {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.medical-history-modal .severity-severe {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+/* Surgical History */
+.medical-history-modal .surgical-history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.medical-history-modal .surgical-item {
+  display: flex;
+  gap: 16px;
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.medical-history-modal .surgical-year {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  min-width: 60px;
+}
+
+.medical-history-modal .surgical-details {
+  flex: 1;
+}
+
+.medical-history-modal .surgical-procedure {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.medical-history-modal .surgical-indication {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Family History */
+.medical-history-modal .family-history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.medical-history-modal .family-member {
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #ec4899;
+}
+
+.medical-history-modal .family-relation {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #831843;
+  margin-bottom: 6px;
+}
+
+.medical-history-modal .family-age {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.medical-history-modal .family-conditions {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.medical-history-modal .labs-table {
+  overflow-x: auto;
+}
+
+.medical-history-modal .labs-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medical-history-modal .labs-table th {
+  background: #f3f4f6;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.medical-history-modal .labs-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+.medical-history-modal .labs-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.medical-history-modal .lab-value {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.medical-history-modal .empty-state {
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.medical-history-modal .modal-footer {
+  padding: 20px 28px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+  border-radius: 0 0 16px 16px;
+}
+
+.medical-history-modal .close-footer-btn {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.medical-history-modal .close-footer-btn:hover {
+  background: #4b5563;
+}
+
+/* Scrollbar styling */
+.medical-history-modal .modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.medical-history-modal .modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.medical-history-modal .modal-content::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.medical-history-modal .modal-content::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
