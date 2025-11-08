@@ -23,15 +23,33 @@ const BriefingView = ({ patient, briefing, onClose }) => {
     });
   };
 
+  const getInsightIcon = (type) => {
+    switch(type.toLowerCase()) {
+      case 'risk':
+        return <span className="icon-shape" style={{ width: '12px', height: '12px', border: '2px solid currentColor', borderRadius: '2px', transform: 'rotate(45deg)' }}></span>;
+      case 'alert':
+        return <span className="icon-shape icon-diamond" style={{ width: '12px', height: '12px' }}></span>;
+      case 'opportunity':
+        return <span className="icon-shape icon-circle" style={{ width: '12px', height: '12px' }}></span>;
+      default:
+        return <span className="icon-shape icon-square" style={{ width: '12px', height: '12px' }}></span>;
+    }
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>Clinical Briefing</h3>
-          <div className="patient-info">
-            {patient.full_name} | {calculateAge(patient.date_of_birth)} years old |{' '}
-            {patient.gender_identity} | Generated: {formatDate(briefing.created_at)}
+          <div>
+            <h3>Clinical Briefing</h3>
+            <div className="patient-info">
+              {patient.full_name} | {calculateAge(patient.date_of_birth)} years old |{' '}
+              {patient.gender_identity} | Generated: {formatDate(briefing.created_at)}
+            </div>
           </div>
+          <button className="btn btn-secondary" onClick={onClose} style={{ padding: '6px' }}>
+            <span className="icon-shape icon-plus" style={{ transform: 'rotate(45deg)' }}></span>
+          </button>
         </div>
 
         <div className="briefing-view">
@@ -54,6 +72,7 @@ const BriefingView = ({ patient, briefing, onClose }) => {
                 >
                   <div className="insight-header">
                     <span className={`insight-type ${insight.type.toLowerCase()}`}>
+                      {getInsightIcon(insight.type)}
                       {insight.type}
                     </span>
                     <span className="insight-flag">{insight.flag}</span>
@@ -68,7 +87,10 @@ const BriefingView = ({ patient, briefing, onClose }) => {
 
           {/* Reported Symptoms Section */}
           <div className="briefing-section">
-            <h4>Reported Symptoms (Structured)</h4>
+            <h4>
+              <span className="icon-shape icon-circle" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }}></span>
+              Reported Symptoms (Structured)
+            </h4>
             {briefing.reported_symptoms_structured &&
             briefing.reported_symptoms_structured.length > 0 ? (
               <ul className="symptom-list">
@@ -90,7 +112,10 @@ const BriefingView = ({ patient, briefing, onClose }) => {
 
           {/* Relevant Medical History Section */}
           <div className="briefing-section">
-            <h4>Relevant Medical History</h4>
+            <h4>
+              <span className="icon-shape icon-square" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }}></span>
+              Relevant Medical History
+            </h4>
             {briefing.relevant_history_surfaced &&
             briefing.relevant_history_surfaced.length > 0 ? (
               <ul className="history-list">

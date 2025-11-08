@@ -1,13 +1,14 @@
 .medical-history-modal {
-  background: white;
-  border-radius: 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
   width: 90%;
   max-width: 900px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.3s ease-out;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+  animation: slideUp var(--transition-slow) ease-out;
 }
 
 .medical-history-modal .modal-header {
@@ -15,50 +16,56 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px 28px;
-  border-bottom: 2px solid #e5e7eb;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px 16px 0 0;
-  color: white;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .medical-history-modal .modal-header h2 {
-  margin: 0 0 8px 0;
-  font-size: 1.5rem;
-  font-weight: 600;
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
 }
 
 .medical-history-modal .patient-info {
   margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.95;
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
 }
 
 .medical-history-modal .close-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  font-size: 32px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: all var(--transition-fast);
   line-height: 1;
   padding: 0;
 }
 
 .medical-history-modal .close-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--color-background);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
 }
 
 .medical-history-modal .modal-content {
   flex: 1;
   overflow-y: auto;
   padding: 28px;
-  background: #f9fafb;
+  background: var(--color-background);
 }
 
 .medical-history-modal .loading-state,
@@ -102,11 +109,11 @@
 }
 
 .medical-history-modal .ehr-section {
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
-  border: 1px solid #e5e7eb;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--color-border);
 }
 
 .medical-history-modal .ehr-section:last-child {
@@ -114,12 +121,12 @@
 }
 
 .medical-history-modal .ehr-section h3 {
-  margin: 0 0 20px 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1f2937;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #667eea;
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.015em;
+  line-height: var(--leading-snug);
 }
 
 .medical-history-modal .info-grid {
@@ -135,15 +142,17 @@
 }
 
 .medical-history-modal .info-item .label {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
 }
 
 .medical-history-modal .info-item .value {
-  font-size: 1rem;
-  color: #1f2937;
-  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-snug);
 }
 
 .medical-history-modal .problem-list {
@@ -152,23 +161,32 @@
 }
 
 .medical-history-modal .problem-item {
-  background: #f3f4f6;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-text-primary);
+  transition: all var(--transition-fast);
+}
+
+.medical-history-modal .problem-item:hover {
+  box-shadow: var(--shadow-sm);
 }
 
 .medical-history-modal .problem-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 4px;
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--leading-snug);
 }
 
 .medical-history-modal .problem-code {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-family: 'Courier New', monospace;
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  line-height: var(--leading-normal);
 }
 
 .medical-history-modal .medication-list {
@@ -387,27 +405,33 @@
 }
 
 .medical-history-modal .modal-footer {
-  padding: 20px 28px;
-  border-top: 1px solid #e5e7eb;
+  padding: var(--spacing-lg) 28px;
+  border-top: 1px solid var(--color-border);
   display: flex;
   justify-content: flex-end;
-  background: white;
-  border-radius: 0 0 16px 16px;
+  background: var(--color-surface);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .medical-history-modal .close-footer-btn {
-  background: #6b7280;
+  background: var(--color-blue);
   color: white;
-  border: none;
+  border: 1px solid var(--color-blue);
   padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 500;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: -0.01em;
+  line-height: var(--leading-tight);
 }
 
 .medical-history-modal .close-footer-btn:hover {
-  background: #4b5563;
+  background: var(--color-blue-hover);
+  border-color: var(--color-blue-hover);
+  box-shadow: var(--shadow-md);
 }
 
 /* Scrollbar styling */
@@ -416,14 +440,14 @@
 }
 
 .medical-history-modal .modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 .medical-history-modal .modal-content::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
+  background: var(--color-border-hover);
   border-radius: 4px;
 }
 
 .medical-history-modal .modal-content::-webkit-scrollbar-thumb:hover {
-  background: #a0aec0;
+  background: var(--color-text-tertiary);
 }

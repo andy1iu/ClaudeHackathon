@@ -88,18 +88,22 @@ const PatientDashboard = () => {
 
   if (loading && patients.length === 0) {
     return (
-      <div className="loading-spinner">
-        <div className="spinner"></div>
-        <p>Loading patients...</p>
+      <div className="dashboard-container">
+        <div className="loading-spinner">
+          <div className="spinner"></div>
+          <p>Loading patients...</p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="dashboard-container">
+      <div className="greeting-header">
+        <h1>Hello Doctor Shino!</h1>
+      </div>
       <div className="dashboard-header">
-        <h2>Today's Appointments</h2>
-        <p className="subtitle">Select a patient to begin interactive clinical intake</p>
+        <h2>Patients</h2>
       </div>
 
       {error && (
@@ -108,7 +112,19 @@ const PatientDashboard = () => {
         </div>
       )}
 
-      <table className="patients-table">
+      {patients.length === 0 && !loading ? (
+        <div className="loading-spinner">
+          <div style={{ 
+            width: '48px', 
+            height: '48px', 
+            borderRadius: '50%', 
+            border: '3px solid var(--color-border)',
+            marginBottom: '16px' 
+          }}></div>
+          <p style={{ color: 'var(--color-text-secondary)' }}>No patients scheduled for today</p>
+        </div>
+      ) : (
+        <table className="patients-table">
         <thead>
           <tr>
             <th>Patient ID</th>
@@ -134,27 +150,23 @@ const PatientDashboard = () => {
                       : 'status-pending'
                   }`}
                 >
+                  {patient.briefing_status === 'Briefing Ready' ? (
+                    <span className="icon-shape icon-circle"></span>
+                  ) : (
+                    <span className="icon-shape icon-ring"></span>
+                  )}
                   {patient.briefing_status}
                 </span>
               </td>
               <td>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   {patient.briefing_status === 'Pending Intake' ? (
-                    <>
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => handleBeginIntake(patient)}
-                      >
-                        Begin Patient Intake
-                      </button>
-                      <button
-                        className="btn btn-secondary"
-                        onClick={() => handleSimulateIntake(patient)}
-                        style={{ fontSize: '0.85rem' }}
-                      >
-                        Quick Demo
-                      </button>
-                    </>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleBeginIntake(patient)}
+                    >
+                      Begin Patient Intake
+                    </button>
                   ) : (
                     <button
                       className="btn btn-secondary"
@@ -166,9 +178,8 @@ const PatientDashboard = () => {
                   <button
                     className="btn btn-secondary"
                     onClick={() => handleViewMedicalHistory(patient)}
-                    style={{ fontSize: '0.85rem' }}
                   >
-                    View Medical History
+                    Medical History
                   </button>
                 </div>
               </td>
@@ -176,6 +187,7 @@ const PatientDashboard = () => {
           ))}
         </tbody>
       </table>
+      )}
 
       {showChatModal && selectedPatient && (
         <IntakeChatModal

@@ -47,7 +47,7 @@ function MedicalHistoryModal({ patient, onClose }) {
             </p>
           </div>
           <button className="close-btn" onClick={onClose} aria-label="Close">
-            ×
+            <span className="icon-shape icon-plus" style={{ transform: 'rotate(45deg)' }}></span>
           </button>
         </div>
 

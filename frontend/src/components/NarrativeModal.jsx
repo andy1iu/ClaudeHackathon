@@ -69,11 +69,16 @@ const NarrativeModal = ({ patient, onClose, onBriefingGenerated }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>Patient Intake Simulation</h3>
-          <div className="patient-info">
-            {patient.full_name} | {calculateAge(patient.date_of_birth)} years old |{' '}
-            {patient.gender_identity}
+          <div>
+            <h3>Patient Intake Simulation</h3>
+            <div className="patient-info">
+              {patient.full_name} | {calculateAge(patient.date_of_birth)} years old |{' '}
+              {patient.gender_identity}
+            </div>
           </div>
+          <button className="btn btn-secondary" onClick={onClose} style={{ padding: '6px' }}>
+            <span className="icon-shape icon-plus" style={{ transform: 'rotate(45deg)' }}></span>
+          </button>
         </div>
 
         {error && (
