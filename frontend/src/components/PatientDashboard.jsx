@@ -86,6 +86,65 @@ const PatientDashboard = () => {
     return age;
   };
 
+  // Generate appointment times for patients (simulated)
+  const generateAppointmentTime = (index) => {
+    const now = new Date();
+    const baseTime = new Date(now);
+    baseTime.setHours(9, 0, 0, 0); // Start at 9 AM
+    baseTime.setMinutes(baseTime.getMinutes() + (index * 30)); // 30-minute slots
+    return baseTime;
+  };
+
+  // Get the next upcoming appointment
+  const getNextAppointment = () => {
+    if (patients.length === 0) return null;
+    
+    const now = new Date();
+    const patientsWithTimes = patients.map((patient, index) => ({
+      ...patient,
+      appointmentTime: generateAppointmentTime(index)
+    }));
+
+    // Find the next appointment (first one after current time)
+    const upcomingAppointments = patientsWithTimes.filter(p => p.appointmentTime > now);
+    
+    if (upcomingAppointments.length > 0) {
+      return upcomingAppointments[0];
+    }
+    
+    // If no upcoming appointments, return the first one (or last one of the day)
+    return patientsWithTimes[0];
+  };
+
+  const formatAppointmentTime = (date) => {
+    if (!date) return '';
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours % 12 || 12;
+    const displayMinutes = minutes.toString().padStart(2, '0');
+    return `${displayHours}:${displayMinutes} ${ampm}`;
+  };
+
+  const getTimeUntilAppointment = (appointmentTime) => {
+    if (!appointmentTime) return '';
+    const now = new Date();
+    const diff = appointmentTime - now;
+    
+    if (diff < 0) return 'Now';
+    
+    const minutes = Math.floor(diff / 1000 / 60);
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    
+    if (hours > 0) {
+      return `in ${hours}h ${remainingMinutes}m`;
+    }
+    return `in ${minutes}m`;
+  };
+
+  const nextAppointment = getNextAppointment();
+
   if (loading && patients.length === 0) {
     return (
       <div className="dashboard-container">
@@ -99,8 +158,82 @@ const PatientDashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="greeting-header">
-        <h1>Hello Doctor Shino!</h1>
+      <div className="greeting-section">
+        <div className="greeting-content">
+          <h1>Hello Doctor Shino!</h1>
+          <p className="greeting-subtitle">Review patient information and prepare for your next appointments</p>
+        </div>
+      </div>
+
+      <div className="quick-facts-section">
+        <div className="quick-facts-card">
+          {nextAppointment ? (
+            <>
+              <div className="quick-facts-header">
+                <div className="header-left">
+                  <span className="quick-facts-icon geometric-icon"></span>
+                  <span className="quick-facts-title">Next Meeting</span>
+                </div>
+                <button 
+                  className="quick-facts-btn"
+                  onClick={() => {
+                    if (nextAppointment.briefing_status === 'Briefing Ready') {
+                      handleViewBriefing(nextAppointment);
+                    } else {
+                      handleBeginIntake(nextAppointment);
+                    }
+                  }}
+                >
+                  <span className="btn-icon">→</span>
+                  {nextAppointment.briefing_status === 'Briefing Ready' ? 'View Briefing' : 'Begin Intake'}
+                </button>
+              </div>
+              <div className="next-meeting-info">
+                <div className="meeting-patient">
+                  <span className="patient-name">{nextAppointment.full_name}</span>
+                  <span className="patient-meta">
+                    {calculateAge(nextAppointment.date_of_birth)} years • {nextAppointment.gender_identity}
+                  </span>
+                </div>
+              </div>
+              <div className="quick-facts-content">
+                <div className="quick-fact-item">
+                  <span className="fact-label">Appointment Time</span>
+                  <span className="fact-value time-value">{formatAppointmentTime(nextAppointment.appointmentTime)}</span>
+                </div>
+                <div className="quick-fact-item">
+                  <span className="fact-label">Starting</span>
+                  <span className="fact-value time-value">{getTimeUntilAppointment(nextAppointment.appointmentTime)}</span>
+                </div>
+                <div className="quick-fact-item">
+                  <span className="fact-label">Status</span>
+                  <span className={`fact-value status-value ${nextAppointment.briefing_status === 'Briefing Ready' ? 'status-ready' : 'status-pending'}`}>
+                    {nextAppointment.briefing_status === 'Briefing Ready' ? 'Ready' : 'Pending'}
+                  </span>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="quick-facts-header">
+                <div className="header-left">
+                  <span className="quick-facts-icon geometric-icon"></span>
+                  <span className="quick-facts-title">Quick Facts</span>
+                </div>
+              </div>
+              <div className="quick-facts-content">
+                <div className="quick-fact-item">
+                  <span className="fact-label">Today's Patients</span>
+                  <span className="fact-value">{patients.length}</span>
+                </div>
+                <div className="quick-fact-item">
+                  <span className="fact-label">Pending Intake</span>
+                  <span className="fact-value">{patients.filter(p => p.briefing_status === 'Pending Intake').length}</span>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
       <div className="dashboard-header">
         <h2>Patients</h2>
