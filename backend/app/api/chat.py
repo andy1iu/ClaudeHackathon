@@ -170,7 +170,7 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 - Synthesize chief complaint with medical history
 - Look for drug-symptom correlations, condition progression, treatment gaps
 
-**Step 2. Health Equity Analysis - IDENTIFY → RESEARCH → PROVIDE:**
+**Step 2. Health Equity Analysis - CRITICAL - IDENTIFY → RESEARCH → PROVIDE:**
 
 **IDENTIFY:** Read the patient's ENTIRE response to the empowerment question. Identify ALL dimensions mentioned:
 - Religion/spirituality (Muslim, Christian, Jewish, Hindu, Buddhist, etc.)
@@ -194,6 +194,8 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 **Use actual statistics, native terms, and concrete details - no generic statements.**
 
 **PROVIDE:** Create SEPARATE equity_and_context_flags for EACH distinct dimension identified.
+
+**IMPORTANT: You MUST include the complete "recommendation" object with ALL 5 parts for EVERY equity flag. Do not leave it empty or omit it. This is CRITICAL.**
 
 **5-Part Structure for EVERY Flag:**
 
@@ -291,7 +293,45 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 2. **RESEARCH** - For EACH dimension, provide specific facts/statistics/practices (not generic statements).
 3. **PROVIDE** - Create SEPARATE flag for each dimension with full 5-part structure.
 4. **Multiple Dimensions = Multiple Flags** - Don't combine.
-5. **Output ONLY valid JSON** - No additional text."""
+5. **COMPLETE RECOMMENDATION OBJECT** - Every equity_and_context_flag MUST have a full "recommendation" object with all 5 parts: (1) BACKGROUND & CONTEXT, (2) APPROACH, (3) EXPLORE, (4) INTEGRATE, (5) AVOID. Never leave recommendation empty or null.
+6. **Output ONLY valid JSON** - No additional text.
+
+**EXAMPLE of required equity flag structure (use this format):**
+{{
+  "type": "Cultural Context",
+  "flag": "Example Title",
+  "reasoning": "Why this matters for this patient...",
+  "recommendation": {{
+    "(1) BACKGROUND & CONTEXT": "Detailed background information here...",
+    "(2) APPROACH": "Specific opening phrases: 1) ... 2) ... 3) ...",
+    "(3) EXPLORE": [
+      "First question? [Why it matters and expected answer]",
+      "Second question? [Context]",
+      "Third question? [Context]",
+      "Fourth question? [Context]",
+      "Fifth question? [Context]",
+      "Sixth question? [Context]"
+    ],
+    "(4) INTEGRATE": [
+      "First action",
+      "Second action",
+      "Third action",
+      "Fourth action",
+      "Fifth action",
+      "Sixth action",
+      "Seventh action",
+      "Eighth action"
+    ],
+    "(5) AVOID": [
+      "First mistake to avoid",
+      "Second mistake",
+      "Third mistake",
+      "Fourth mistake",
+      "Fifth mistake",
+      "Sixth mistake"
+    ]
+  }}
+}}"""
 
     try:
         print(f"Starting briefing synthesis for patient {patient.patient_id}...")
@@ -299,7 +339,7 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 
         message = client.messages.create(
             model="claude-3-5-haiku-20241022",
-            max_tokens=8000,
+            max_tokens=16000,  # Increased from 8000 to allow for detailed equity recommendations
             temperature=0.3,
             timeout=120.0,  # Increased to 120 second timeout for complex synthesis
             messages=[{"role": "user", "content": synthesis_prompt}]
