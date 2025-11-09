@@ -286,7 +286,7 @@ const PatientDashboard = () => {
                   {patient.briefing_status === 'Briefing Ready' ? (
                     <span className="icon-shape icon-circle"></span>
                   ) : (
-                    <span className="icon-shape icon-ring"></span>
+                    <span className="status-dot"></span>
                   )}
                   {patient.briefing_status}
                 </span>
