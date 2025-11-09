@@ -1,4 +1,4 @@
-# Amani Clinical Intake - Virtual Clinic MVP
+# shino.ai Clinical Intake - Virtual Clinic MVP
 
 A demonstration application showcasing how AI-powered synthesis of patient narratives with historical medical data can provide clinicians with game-changing pre-appointment insights.
 
