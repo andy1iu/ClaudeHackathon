@@ -1,453 +1,484 @@
+/* Medical History Modal - Ultra Minimalist Design (Stripe/Vercel/Linear inspired) */
+
 .medical-history-modal {
   background: var(--color-surface);
   border-radius: var(--radius-xl);
   width: 90%;
-  max-width: 900px;
+  max-width: 960px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-xl);
-  border: 1px solid var(--color-border);
-  animation: slideUp var(--transition-slow) ease-out;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01), 0 1px 4px rgba(0, 0, 0, 0.02);
+  border: none;
+  animation: slideUp 200ms cubic-bezier(0.2, 0, 0, 1);
+  overflow: hidden;
 }
 
-.medical-history-modal .modal-header {
+/* Header - No border, spacing only */
+.mh-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 24px 28px;
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  align-items: flex-start;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+  flex-shrink: 0;
+  margin-bottom: var(--spacing-xl);
 }
 
-.medical-history-modal .modal-header h2 {
+.mh-header-content {
+  flex: 1;
+}
+
+.mh-title {
   margin: 0 0 var(--spacing-xs) 0;
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: -0.03em;
   line-height: var(--leading-tight);
 }
 
-.medical-history-modal .patient-info {
-  margin: 0;
-  font-size: var(--text-base);
-  font-weight: var(--font-normal);
-  color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
+.mh-patient-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.medical-history-modal .close-btn {
+.mh-patient-meta {
+  font-size: var(--text-xs);
+  color: rgba(0, 0, 0, 0.45);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-normal);
+}
+
+.mh-close-btn {
   background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  font-size: 24px;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
+  border: none;
+  color: rgba(0, 0, 0, 0.4);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-fast);
-  line-height: 1;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
   padding: 0;
 }
 
-.medical-history-modal .close-btn:hover {
-  background: var(--color-background);
-  border-color: var(--color-border-hover);
-  color: var(--color-text-primary);
+.mh-close-btn:hover {
+  background: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.9);
 }
 
-.medical-history-modal .modal-content {
+.mh-close-btn:focus {
+  outline: 2px solid rgba(0, 122, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.mh-close-btn svg {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+/* Content */
+.mh-content {
   flex: 1;
   overflow-y: auto;
-  padding: 28px;
+  padding: 0 var(--spacing-xl) var(--spacing-xl);
   background: var(--color-background);
 }
 
-.medical-history-modal .loading-state,
-.medical-history-modal .error-state {
+.mh-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* Loading & Error States */
+.mh-loading,
+.mh-error {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
-  color: #6b7280;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  color: rgba(0, 0, 0, 0.6);
+  min-height: 300px;
 }
 
-.medical-history-modal .spinner {
-  border: 3px solid #e5e7eb;
-  border-top: 3px solid #667eea;
+.mh-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  border-top-color: rgba(0, 0, 0, 0.9);
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 16px;
+  animation: spin 0.6s linear infinite;
+  margin-bottom: var(--spacing-md);
 }
 
-.medical-history-modal .error-state p {
-  color: #dc2626;
-  margin-bottom: 16px;
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.medical-history-modal .retry-btn {
-  background: #667eea;
+.mh-error p {
+  color: rgba(0, 0, 0, 0.9);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+.mh-retry-btn {
+  background: rgba(0, 0, 0, 0.9);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.medical-history-modal .retry-btn:hover {
-  background: #5568d3;
+.mh-retry-btn:hover {
+  opacity: 0.85;
 }
 
-.medical-history-modal .ehr-section {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-  border: 1px solid var(--color-border);
+.mh-retry-btn:focus {
+  outline: 2px solid rgba(0, 122, 255, 0.3);
+  outline-offset: 2px;
 }
 
-.medical-history-modal .ehr-section:last-child {
-  margin-bottom: 0;
-}
-
-.medical-history-modal .ehr-section h3 {
-  margin: 0 0 var(--spacing-md) 0;
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  letter-spacing: -0.015em;
-  line-height: var(--leading-snug);
-}
-
-.medical-history-modal .info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-}
-
-.medical-history-modal .info-item {
+/* Section Styles - No backgrounds, no borders */
+.mh-section {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--spacing-lg);
 }
 
-.medical-history-modal .info-item .label {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  font-weight: var(--font-medium);
-  line-height: var(--leading-normal);
-}
-
-.medical-history-modal .info-item .value {
-  font-size: var(--text-lg);
-  color: var(--color-text-primary);
-  font-weight: var(--font-medium);
-  line-height: var(--leading-snug);
-}
-
-.medical-history-modal .problem-list {
-  display: grid;
-  gap: 12px;
-}
-
-.medical-history-modal .problem-item {
-  background: var(--color-background);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-text-primary);
-  transition: all var(--transition-fast);
-}
-
-.medical-history-modal .problem-item:hover {
-  box-shadow: var(--shadow-sm);
-}
-
-.medical-history-modal .problem-name {
-  font-size: var(--text-base);
-  font-weight: var(--font-medium);
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-xs);
-  line-height: var(--leading-snug);
-}
-
-.medical-history-modal .problem-code {
-  font-size: var(--text-sm);
-  font-weight: var(--font-normal);
-  color: var(--color-text-secondary);
-  font-family: var(--font-mono);
-  line-height: var(--leading-normal);
-}
-
-.medical-history-modal .medication-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-}
-
-.medical-history-modal .medication-item {
-  background: #f3f4f6;
-  padding: 12px 16px;
-  border-radius: 6px;
-  font-size: 0.9375rem;
-  color: #1f2937;
-  border-left: 3px solid #10b981;
-}
-
-/* Enhanced medication list */
-.medical-history-modal .medication-list-enhanced {
-  display: grid;
-  gap: 12px;
-}
-
-.medical-history-modal .medication-item-enhanced {
-  background: #f3f4f6;
-  padding: 14px 18px;
-  border-radius: 8px;
-  border-left: 4px solid #10b981;
-}
-
-.medical-history-modal .medication-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 4px;
-}
-
-.medical-history-modal .medication-details {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-.medical-history-modal .medication-dosage {
-  font-weight: 500;
-  color: #374151;
-}
-
-.medical-history-modal .medication-frequency {
-  color: #6b7280;
-}
-
-/* Allergy Section */
-.medical-history-modal .allergy-list {
-  display: grid;
-  gap: 12px;
-}
-
-.medical-history-modal .allergy-item {
-  background: #fef3c7;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #f59e0b;
-}
-
-.medical-history-modal .allergy-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #92400e;
-  margin-bottom: 6px;
-}
-
-.medical-history-modal .allergy-details {
+.mh-section-header {
   display: flex;
-  gap: 12px;
   align-items: center;
-  font-size: 0.875rem;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
 }
 
-.medical-history-modal .allergy-reaction {
-  color: #78350f;
-}
-
-.medical-history-modal .allergy-severity {
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
+.mh-section-title {
+  margin: 0;
+  font-size: 11px;
+  font-weight: var(--font-normal);
+  color: rgba(0, 0, 0, 0.45);
+  letter-spacing: 0.1em;
+  line-height: var(--leading-tight);
   text-transform: uppercase;
 }
 
-.medical-history-modal .severity-mild {
-  background: #dbeafe;
-  color: #1e40af;
+.mh-section-date {
+  font-size: var(--text-xs);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: var(--font-normal);
+  font-family: var(--font-mono);
 }
 
-.medical-history-modal .severity-moderate {
-  background: #fed7aa;
-  color: #c2410c;
-}
-
-.medical-history-modal .severity-severe {
-  background: #fecaca;
-  color: #991b1b;
-}
-
-/* Surgical History */
-.medical-history-modal .surgical-history-list {
+/* Demographics */
+.mh-demo-grid {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
 }
 
-.medical-history-modal .surgical-item {
+.mh-demo-item {
   display: flex;
-  gap: 16px;
-  background: #f3f4f6;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #8b5cf6;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.medical-history-modal .surgical-year {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #8b5cf6;
-  min-width: 60px;
+.mh-demo-label {
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  line-height: var(--leading-normal);
 }
 
-.medical-history-modal .surgical-details {
-  flex: 1;
+.mh-demo-value {
+  font-size: var(--text-base);
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-snug);
 }
 
-.medical-history-modal .surgical-procedure {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 4px;
-}
-
-.medical-history-modal .surgical-indication {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-style: italic;
-}
-
-/* Family History */
-.medical-history-modal .family-history-list {
+/* Vital Signs - Larger numbers, no cards */
+.mh-vitals-grid {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-xl);
 }
 
-.medical-history-modal .family-member {
-  background: #f3f4f6;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #ec4899;
+.mh-vital-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.medical-history-modal .family-relation {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #831843;
-  margin-bottom: 6px;
+.mh-vital-label {
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  line-height: var(--leading-normal);
 }
 
-.medical-history-modal .family-age {
-  font-size: 0.875rem;
-  color: #374151;
-  margin-bottom: 4px;
+.mh-vital-value {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
 }
 
-.medical-history-modal .family-conditions {
-  font-size: 0.875rem;
-  color: #6b7280;
+.mh-vital-number {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-blue);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
 }
 
-.medical-history-modal .labs-table {
+.mh-vital-sep {
+  font-size: var(--text-xl);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: var(--font-normal);
+}
+
+.mh-vital-unit {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: var(--font-normal);
+}
+
+/* List Styles - Minimal dividers only */
+.mh-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mh-list-item {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mh-list-item:last-child {
+  border-bottom: none;
+}
+
+.mh-list-item:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.mh-list-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.mh-list-name {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: rgba(0, 0, 0, 0.9);
+  line-height: var(--leading-snug);
+}
+
+.mh-list-meta {
+  font-size: var(--text-xs);
+  color: rgba(0, 0, 0, 0.4);
+  font-family: var(--font-mono);
+  font-weight: var(--font-normal);
+  white-space: nowrap;
+}
+
+.mh-list-detail {
+  font-size: var(--text-sm);
+  color: rgba(0, 0, 0, 0.6);
+  line-height: var(--leading-normal);
+}
+
+.mh-list-detail-label {
+  font-weight: var(--font-medium);
+  margin-right: var(--spacing-xs);
+}
+
+.mh-sep {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Badges - Ultra Minimal, no borders */
+.mh-badge {
+  padding: 2px var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 9px;
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  border: none;
+}
+
+.mh-badge-mild {
+  background: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mh-badge-moderate {
+  background: rgba(255, 193, 7, 0.03);
+  color: #b8860b;
+}
+
+.mh-badge-severe {
+  background: rgba(239, 68, 68, 0.03);
+  color: #B91C1C;
+}
+
+/* Table - No border, minimal styling */
+.mh-table-wrapper {
   overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md);
 }
 
-.medical-history-modal .labs-table table {
+.mh-table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.medical-history-modal .labs-table th {
-  background: #f3f4f6;
-  padding: 12px 16px;
-  text-align: left;
-  font-weight: 600;
-  color: #374151;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.medical-history-modal .labs-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  color: #1f2937;
-}
-
-.medical-history-modal .labs-table tbody tr:hover {
-  background: #f9fafb;
-}
-
-.medical-history-modal .lab-value {
-  font-weight: 600;
-  color: #667eea;
-}
-
-.medical-history-modal .empty-state {
-  color: #9ca3af;
-  font-style: italic;
-  text-align: center;
-  padding: 20px;
-}
-
-.medical-history-modal .modal-footer {
-  padding: var(--spacing-lg) 28px;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  justify-content: flex-end;
   background: var(--color-surface);
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
-.medical-history-modal .close-footer-btn {
-  background: var(--color-blue);
-  color: white;
-  border: 1px solid var(--color-blue);
-  padding: 10px 24px;
-  border-radius: var(--radius-md);
-  font-weight: var(--font-medium);
+.mh-table thead {
+  background: rgba(0, 0, 0, 0.01);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.mh-table th {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  font-size: 9px;
+  font-weight: var(--font-semibold);
+  color: rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.mh-table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mh-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.mh-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.mh-table-cell {
+  padding: var(--spacing-lg);
   font-size: var(--text-sm);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-  letter-spacing: -0.01em;
-  line-height: var(--leading-tight);
+  color: rgba(0, 0, 0, 0.9);
+  line-height: var(--leading-normal);
 }
 
-.medical-history-modal .close-footer-btn:hover {
-  background: var(--color-blue-hover);
-  border-color: var(--color-blue-hover);
-  box-shadow: var(--shadow-md);
+.mh-table-value {
+  font-weight: var(--font-medium);
+  color: var(--color-blue);
 }
 
-/* Scrollbar styling */
-.medical-history-modal .modal-content::-webkit-scrollbar {
-  width: 8px;
+.mh-table-meta {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: var(--font-mono);
 }
 
-.medical-history-modal .modal-content::-webkit-scrollbar-track {
+/* Empty States */
+.mh-empty {
+  padding: var(--spacing-lg) 0;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: var(--text-xs);
+  font-style: italic;
+}
+
+.mh-empty-large {
+  padding: var(--spacing-2xl);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Scrollbar - Ultra Minimal, show on hover */
+.mh-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.mh-content::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.medical-history-modal .modal-content::-webkit-scrollbar-thumb {
-  background: var(--color-border-hover);
-  border-radius: 4px;
+.mh-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.medical-history-modal .modal-content::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+.mh-content:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+.mh-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medical-history-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .mh-header {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .mh-content {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+  }
+
+  .mh-sections {
+    gap: 56px;
+  }
+
+  .mh-demo-grid,
+  .mh-vitals-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .mh-list-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mh-table-cell {
+    padding: var(--spacing-md);
+  }
 }

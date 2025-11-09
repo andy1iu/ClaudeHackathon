@@ -15,6 +15,9 @@ const PatientDashboard = () => {
   const [showBriefingModal, setShowBriefingModal] = useState(false);
   const [showMedicalHistoryModal, setShowMedicalHistoryModal] = useState(false);
   const [briefing, setBriefing] = useState(null);
+  const [selectedRows, setSelectedRows] = useState(new Set());
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [compactMode, setCompactMode] = useState(true);
 
   useEffect(() => {
     loadPatients();
@@ -75,6 +78,18 @@ const PatientDashboard = () => {
     setShowMedicalHistoryModal(true);
   };
 
+  const handleRowSelect = (patientId) => {
+    setSelectedRows(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(patientId)) {
+        newSet.delete(patientId);
+      } else {
+        newSet.add(patientId);
+      }
+      return newSet;
+    });
+  };
+
   const calculateAge = (dateOfBirth) => {
     const today = new Date();
     const birthDate = new Date(dateOfBirth);
@@ -84,6 +99,54 @@ const PatientDashboard = () => {
       age--;
     }
     return age;
+  };
+
+  const handleSort = (key) => {
+    setSortConfig(prev => {
+      if (prev.key === key) {
+        return { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' };
+      }
+      return { key, direction: 'asc' };
+    });
+  };
+
+  const sortedPatients = [...patients].sort((a, b) => {
+    if (!sortConfig.key) return 0;
+    
+    let aValue, bValue;
+    
+    switch (sortConfig.key) {
+      case 'patient_id':
+        aValue = a.patient_id;
+        bValue = b.patient_id;
+        break;
+      case 'full_name':
+        aValue = a.full_name;
+        bValue = b.full_name;
+        break;
+      case 'age':
+        aValue = calculateAge(a.date_of_birth);
+        bValue = calculateAge(b.date_of_birth);
+        break;
+      case 'status':
+        aValue = a.briefing_status;
+        bValue = b.briefing_status;
+        break;
+      default:
+        return 0;
+    }
+    
+    if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
+    if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  const handleSelectAll = () => {
+    if (selectedRows.size === sortedPatients.length) {
+      setSelectedRows(new Set());
+    } else {
+      setSelectedRows(new Set(sortedPatients.map(p => p.patient_id)));
+    }
   };
 
   // Generate appointment times for patients (simulated)
@@ -165,78 +228,97 @@ const PatientDashboard = () => {
         </div>
       </div>
 
-      <div className="quick-facts-section">
-        <div className="quick-facts-card">
-          {nextAppointment ? (
-            <>
-              <div className="quick-facts-header">
-                <div className="header-left">
-                  <span className="quick-facts-icon geometric-icon"></span>
-                  <span className="quick-facts-title">Next Meeting</span>
-                </div>
-                <button 
-                  className="quick-facts-btn"
-                  onClick={() => {
-                    if (nextAppointment.briefing_status === 'Briefing Ready') {
-                      handleViewBriefing(nextAppointment);
-                    } else {
-                      handleBeginIntake(nextAppointment);
-                    }
-                  }}
-                >
-                  <span className="btn-icon">→</span>
-                  {nextAppointment.briefing_status === 'Briefing Ready' ? 'View Briefing' : 'Begin Intake'}
-                </button>
-              </div>
-              <div className="next-meeting-info">
-                <div className="meeting-patient">
-                  <span className="patient-name">{nextAppointment.full_name}</span>
-                  <span className="patient-meta">
+      <div className="next-meeting-section">
+        {nextAppointment ? (
+          <div className="next-meeting-card">
+            <div className="next-meeting-header">
+              <div className="next-meeting-label">Next Meeting</div>
+            </div>
+            
+            <div className="next-meeting-body">
+              <div className="next-meeting-primary">
+                <div className="next-meeting-patient">
+                  <h3 className="next-meeting-name">{nextAppointment.full_name}</h3>
+                  <div className="next-meeting-meta">
                     {calculateAge(nextAppointment.date_of_birth)} years • {nextAppointment.gender_identity}
-                  </span>
+                  </div>
                 </div>
               </div>
-              <div className="quick-facts-content">
-                <div className="quick-fact-item">
-                  <span className="fact-label">Appointment Time</span>
-                  <span className="fact-value time-value">{formatAppointmentTime(nextAppointment.appointmentTime)}</span>
+              
+              <div className="next-meeting-details">
+                <div className="next-meeting-detail">
+                  <div className="next-meeting-detail-label">Time</div>
+                  <div className="next-meeting-detail-value">{formatAppointmentTime(nextAppointment.appointmentTime)}</div>
                 </div>
-                <div className="quick-fact-item">
-                  <span className="fact-label">Starting</span>
-                  <span className="fact-value time-value">{getTimeUntilAppointment(nextAppointment.appointmentTime)}</span>
+                <div className="next-meeting-detail">
+                  <div className="next-meeting-detail-label">Starting</div>
+                  <div className="next-meeting-detail-value next-meeting-time-until">{getTimeUntilAppointment(nextAppointment.appointmentTime)}</div>
                 </div>
-                <div className="quick-fact-item">
-                  <span className="fact-label">Status</span>
-                  <span className={`fact-value status-value ${nextAppointment.briefing_status === 'Briefing Ready' ? 'status-ready' : 'status-pending'}`}>
+                <div className="next-meeting-detail">
+                  <div className="next-meeting-detail-label">Status</div>
+                  <div className={`next-meeting-detail-value next-meeting-status ${nextAppointment.briefing_status === 'Briefing Ready' ? 'status-ready' : 'status-pending'}`}>
                     {nextAppointment.briefing_status === 'Briefing Ready' ? 'Ready' : 'Pending'}
-                  </span>
+                  </div>
                 </div>
               </div>
-            </>
-          ) : (
-            <>
-              <div className="quick-facts-header">
-                <div className="header-left">
-                  <span className="quick-facts-icon geometric-icon"></span>
-                  <span className="quick-facts-title">Quick Facts</span>
-                </div>
+            </div>
+            
+            <div className="next-meeting-footer">
+              <button 
+                className="next-meeting-action"
+                onClick={() => {
+                  if (nextAppointment.briefing_status === 'Briefing Ready') {
+                    handleViewBriefing(nextAppointment);
+                  } else {
+                    handleBeginIntake(nextAppointment);
+                  }
+                }}
+              >
+                {nextAppointment.briefing_status === 'Briefing Ready' ? 'View Briefing' : 'Begin Intake'}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.25 10.5L8.75 7L5.25 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="quick-facts-card">
+            <div className="quick-facts-header">
+              <div className="quick-facts-label">Quick Facts</div>
+            </div>
+            <div className="quick-facts-grid">
+              <div className="quick-fact">
+                <div className="quick-fact-label">Today's Patients</div>
+                <div className="quick-fact-value">{patients.length}</div>
               </div>
-              <div className="quick-facts-content">
-                <div className="quick-fact-item">
-                  <span className="fact-label">Today's Patients</span>
-                  <span className="fact-value">{patients.length}</span>
-                </div>
-                <div className="quick-fact-item">
-                  <span className="fact-label">Pending Intake</span>
-                  <span className="fact-value">{patients.filter(p => p.briefing_status === 'Pending Intake').length}</span>
-                </div>
+              <div className="quick-fact">
+                <div className="quick-fact-label">Pending Intake</div>
+                <div className="quick-fact-value">{patients.filter(p => p.briefing_status === 'Pending Intake').length}</div>
               </div>
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="dashboard-header">
-        <h2>Patients</h2>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+          <h2>Patients</h2>
+          <button
+            className="compact-mode-toggle"
+            onClick={() => setCompactMode(!compactMode)}
+            style={{
+              padding: '6px 12px',
+              background: 'transparent',
+              border: '0.5px solid rgba(0, 0, 0, 0.1)',
+              borderRadius: '6px',
+              fontSize: '12px',
+              color: 'var(--color-text-secondary)',
+              cursor: 'pointer',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            {compactMode ? 'Detailed' : 'Compact'}
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -257,69 +339,125 @@ const PatientDashboard = () => {
           <p style={{ color: 'var(--color-text-secondary)' }}>No patients scheduled for today</p>
         </div>
       ) : (
-        <table className="patients-table">
-        <thead>
-          <tr>
-            <th>Patient ID</th>
-            <th>Full Name</th>
-            <th>Age / Gender</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {patients.map((patient) => (
-            <tr key={patient.patient_id}>
-              <td>{patient.patient_id}</td>
-              <td>{patient.full_name}</td>
-              <td>
-                {calculateAge(patient.date_of_birth)} years / {patient.gender_identity}
-              </td>
-              <td>
-                <span
-                  className={`status-badge ${
-                    patient.briefing_status === 'Briefing Ready'
-                      ? 'status-ready'
-                      : 'status-pending'
-                  }`}
-                >
-                  {patient.briefing_status === 'Briefing Ready' ? (
-                    <span className="icon-shape icon-circle"></span>
-                  ) : (
-                    <span className="status-dot"></span>
-                  )}
-                  {patient.briefing_status}
-                </span>
-              </td>
-              <td>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  {patient.briefing_status === 'Pending Intake' ? (
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => handleBeginIntake(patient)}
-                    >
-                      Begin Patient Intake
-                    </button>
-                  ) : (
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => handleViewBriefing(patient)}
-                    >
-                      View Clinical Briefing
-                    </button>
-                  )}
-                  <button
-                    className="btn btn-secondary"
-                    onClick={() => handleViewMedicalHistory(patient)}
+        <>
+          {selectedRows.size > 0 && (
+            <div className="bulk-actions-bar">
+              <span>{selectedRows.size} selected</span>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button className="btn btn-secondary" onClick={() => setSelectedRows(new Set())}>
+                  Clear
+                </button>
+              </div>
+            </div>
+          )}
+          <div className="table-container">
+            <table className={`patients-table ${compactMode ? 'compact-mode' : ''}`}>
+              <thead>
+                <tr>
+                  <th className="sticky-column">
+                    <input
+                      type="checkbox"
+                      checked={selectedRows.size === sortedPatients.length && sortedPatients.length > 0}
+                      onChange={handleSelectAll}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  </th>
+                  <th className="sticky-column sortable" onClick={() => handleSort('patient_id')}>
+                    Patient ID
+                    {sortConfig.key === 'patient_id' && (
+                      <span className="sort-indicator">{sortConfig.direction === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </th>
+                  <th className="sortable" onClick={() => handleSort('full_name')}>
+                    Full Name
+                    {sortConfig.key === 'full_name' && (
+                      <span className="sort-indicator">{sortConfig.direction === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </th>
+                  <th className="sortable" onClick={() => handleSort('age')}>
+                    Age / Gender
+                    {sortConfig.key === 'age' && (
+                      <span className="sort-indicator">{sortConfig.direction === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </th>
+                  <th className="sortable" onClick={() => handleSort('status')}>
+                    Status
+                    {sortConfig.key === 'status' && (
+                      <span className="sort-indicator">{sortConfig.direction === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedPatients.map((patient) => (
+                  <tr 
+                    key={patient.patient_id}
+                    className={`${selectedRows.has(patient.patient_id) ? 'row-selected' : ''} ${
+                      patient.briefing_status === 'Briefing Ready' ? 'row-status-ready' : 'row-status-pending'
+                    }`}
                   >
-                    Medical History
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                    <td className="sticky-column">
+                      <input
+                        type="checkbox"
+                        checked={selectedRows.has(patient.patient_id)}
+                        onChange={() => handleRowSelect(patient.patient_id)}
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </td>
+                    <td className="sticky-column">{patient.patient_id}</td>
+                    <td>{patient.full_name}</td>
+                    <td>
+                      {calculateAge(patient.date_of_birth)} years / {patient.gender_identity}
+                    </td>
+                    <td>
+                      <span
+                        className={`status-badge ${
+                          patient.briefing_status === 'Briefing Ready'
+                            ? 'status-ready'
+                            : 'status-pending'
+                        }`}
+                      >
+                        {patient.briefing_status === 'Briefing Ready' ? (
+                          <span className="icon-shape icon-circle"></span>
+                        ) : (
+                          <span className="status-dot"></span>
+                        )}
+                        {patient.briefing_status}
+                      </span>
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', gap: 'var(--spacing-2)', flexWrap: 'wrap', alignItems: 'center' }}>
+                        {patient.briefing_status === 'Pending Intake' ? (
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => handleBeginIntake(patient)}
+                          >
+                            Begin Patient Intake
+                          </button>
+                        ) : (
+                          <button
+                            className="btn btn-secondary"
+                            onClick={() => handleViewBriefing(patient)}
+                          >
+                            View Clinical Briefing
+                          </button>
+                        )}
+                        <button
+                          className="btn btn-secondary"
+                          onClick={() => handleViewMedicalHistory(patient)}
+                        >
+                          Medical History
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
 
       {showChatModal && selectedPatient && (
