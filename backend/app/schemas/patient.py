@@ -80,6 +80,8 @@ class PatientBase(BaseModel):
 
 class PatientResponse(PatientBase):
     briefing_status: str  # "Pending Intake" or "Briefing Ready"
+    created_at: datetime
+    updated_at: datetime
 
     class Config:
         from_attributes = True
@@ -93,6 +95,9 @@ class PatientNarrativeBase(BaseModel):
 
 
 class PatientNarrativeResponse(PatientNarrativeBase):
+    created_at: datetime
+    updated_at: datetime
+
     class Config:
         from_attributes = True
 
@@ -130,6 +135,7 @@ class ClinicalBriefingBase(BaseModel):
     briefing_id: str
     patient_id: str
     created_at: datetime
+    updated_at: datetime
     ai_summary: str
     key_insights_flags: List[KeyInsightFlag]
     equity_and_context_flags: Optional[List[EquityContextFlag]] = None
@@ -174,3 +180,42 @@ class ChatContinueResponse(BaseModel):
     is_complete: bool
     briefing_id: Optional[str] = None  # Populated when conversation completes
     thinking: Optional[List[str]] = None  # Real-time thinking steps from Claude
+
+
+class AppointmentBase(BaseModel):
+    appointment_id: str
+    patient_id: str
+    appointment_date_time: datetime
+    appointment_status: str  # scheduled, completed, cancelled, no_show, rescheduled
+    appointment_type: Optional[str] = None  # initial, follow_up, consultation, urgent, routine
+    duration_minutes: Optional[int] = 30
+    location: Optional[str] = None  # in_person, virtual, phone
+    provider_name: Optional[str] = None
+    notes: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class AppointmentCreate(BaseModel):
+    patient_id: str
+    appointment_date_time: datetime
+    appointment_type: Optional[str] = None
+    duration_minutes: Optional[int] = 30
+    location: Optional[str] = None
+    provider_name: Optional[str] = None
+    notes: Optional[str] = None
+
+
+class AppointmentUpdate(BaseModel):
+    appointment_date_time: Optional[datetime] = None
+    appointment_status: Optional[str] = None
+    appointment_type: Optional[str] = None
+    duration_minutes: Optional[int] = None
+    location: Optional[str] = None
+    provider_name: Optional[str] = None
+    notes: Optional[str] = None
+
+
+class AppointmentResponse(AppointmentBase):
+    class Config:
+        from_attributes = True

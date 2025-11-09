@@ -56,4 +56,43 @@ export const chatApi = {
   },
 };
 
+export const appointmentsApi = {
+  getAll: async (params = {}) => {
+    const response = await api.get('/appointments', { params });
+    return response.data;
+  },
+
+  getById: async (appointmentId) => {
+    const response = await api.get(`/appointments/${appointmentId}`);
+    return response.data;
+  },
+
+  getByPatient: async (patientId, options = {}) => {
+    const params = { ...options };
+    const response = await api.get(`/patients/${patientId}/appointments`, { params });
+    return response.data;
+  },
+
+  getNextUpcoming: async (patientId = null) => {
+    const params = patientId ? { patient_id: patientId } : {};
+    const response = await api.get('/appointments/next/upcoming', { params });
+    return response.data;
+  },
+
+  create: async (appointmentData) => {
+    const response = await api.post('/appointments', appointmentData);
+    return response.data;
+  },
+
+  update: async (appointmentId, appointmentData) => {
+    const response = await api.put(`/appointments/${appointmentId}`, appointmentData);
+    return response.data;
+  },
+
+  delete: async (appointmentId) => {
+    const response = await api.delete(`/appointments/${appointmentId}`);
+    return response.data;
+  },
+};
+
 export default api;

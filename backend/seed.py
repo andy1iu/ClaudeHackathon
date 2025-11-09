@@ -7,14 +7,15 @@ Run this script to initialize the database with test data.
 import json
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+import random
 
 # Add the backend directory to the path
 sys.path.append(str(Path(__file__).parent))
 
 from sqlalchemy.orm import Session
 from app.db.database import engine, Base
-from app.models.patient import Patient, EHRHistory, PatientNarrative
+from app.models.patient import Patient, EHRHistory, PatientNarrative, Appointment
 import uuid
 
 
@@ -98,6 +99,65 @@ def seed_database():
         db.commit()
         print(f"✅ Inserted {len(narratives_data)} narratives")
 
+        # Insert appointments
+        print("\n📅 Inserting appointments...")
+        appointment_types = ["initial", "follow_up", "consultation", "urgent", "routine"]
+        locations = ["in_person", "virtual", "phone"]
+        statuses = ["scheduled", "scheduled", "scheduled", "completed"]  # Mostly scheduled, some completed
+        providers = ["Dr. Smith", "Dr. Johnson", "Dr. Williams", "Dr. Brown", "Dr. Davis", None]
+        
+        # Generate appointments for patients
+        appointments_created = 0
+        now = datetime.now(timezone.utc)
+        
+        for i, patient_data in enumerate(patients_data):
+            # Create 1-3 appointments per patient
+            num_appointments = random.randint(1, 3)
+            
+            for j in range(num_appointments):
+                # Generate appointment date/time: some in past (completed), most in future
+                days_offset = random.randint(-30, 60)  # -30 to +60 days
+                hours_offset = random.randint(9, 16)  # 9 AM to 4 PM
+                minutes_offset = random.choice([0, 15, 30, 45])  # On the hour or quarter hour
+                
+                appointment_datetime = now + timedelta(days=days_offset)
+                appointment_datetime = appointment_datetime.replace(
+                    hour=hours_offset,
+                    minute=minutes_offset,
+                    second=0,
+                    microsecond=0,
+                    tzinfo=timezone.utc
+                )
+                
+                # Determine status based on date
+                if appointment_datetime < now:
+                    status = random.choice(["completed", "cancelled", "no_show"])
+                else:
+                    status = "scheduled"
+                
+                appointment = Appointment(
+                    appointment_id=f"APT-{uuid.uuid4().hex[:10].upper()}",
+                    patient_id=patient_data["patient_id"],
+                    appointment_date_time=appointment_datetime,
+                    appointment_status=status,
+                    appointment_type=random.choice(appointment_types),
+                    duration_minutes=random.choice([15, 30, 45, 60]),
+                    location=random.choice(locations),
+                    provider_name=random.choice(providers),
+                    notes=random.choice([
+                        None,
+                        "Follow-up from previous visit",
+                        "Annual checkup",
+                        "Routine consultation",
+                        "Patient requested appointment"
+                    ])
+                )
+                db.add(appointment)
+                appointments_created += 1
+        
+        db.commit()
+        print(f"✅ Inserted {appointments_created} appointments")
+
         print("\n" + "="*50)
         print("🎉 Database seeding completed successfully!")
         print("="*50)
@@ -105,6 +165,7 @@ def seed_database():
         print(f"   • {len(patients_data)} patients loaded")
         print(f"   • {len(ehr_data)} EHR histories loaded")
         print(f"   • {len(narratives_data)} narratives loaded")
+        print(f"   • {appointments_created} appointments loaded")
         print("\n🚀 You can now start the API server!")
 
     except Exception as e:

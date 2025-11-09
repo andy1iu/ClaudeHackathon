@@ -370,7 +370,6 @@ Remember: Replace ALL bracketed placeholders with research-based content specifi
             briefing_id=briefing_id,
             patient_id=patient.patient_id,
             conversation_id=conversation.conversation_id,
-            created_at=datetime.utcnow(),
             ai_summary=briefing_data.get("ai_summary", "Summary not available"),
             key_insights_flags=briefing_data.get("key_insights_flags", []),
             equity_and_context_flags=briefing_data.get("equity_and_context_flags", []),
@@ -432,7 +431,6 @@ def start_chat(
     conversation = ChatConversation(
         conversation_id=conversation_id,
         patient_id=request.patient_id,
-        created_at=datetime.utcnow(),
         is_complete=False,
         messages=initial_messages
     )

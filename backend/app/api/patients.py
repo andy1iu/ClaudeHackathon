@@ -27,7 +27,9 @@ def get_patients(db: Session = Depends(get_db)):
             "gender_identity": patient.gender_identity,
             "race": patient.race,
             "address_zip_code": patient.address_zip_code,
-            "briefing_status": "Briefing Ready" if has_briefing else "Pending Intake"
+            "briefing_status": "Briefing Ready" if has_briefing else "Pending Intake",
+            "created_at": patient.created_at,
+            "updated_at": patient.updated_at
         })
 
     return result

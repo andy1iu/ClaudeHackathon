@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.api import patients, synthesize, chat
+from app.api import patients, synthesize, chat, appointments
 from app.db.database import engine, Base
 
 # Create database tables
@@ -26,6 +26,7 @@ app.add_middleware(
 app.include_router(patients.router, prefix="/api", tags=["patients"])
 app.include_router(synthesize.router, prefix="/api", tags=["synthesis"])
 app.include_router(chat.router, prefix="/api", tags=["chat"])
+app.include_router(appointments.router, prefix="/api", tags=["appointments"])
 
 
 @app.get("/")
