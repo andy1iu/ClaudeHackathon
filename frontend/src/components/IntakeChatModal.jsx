@@ -9,8 +9,11 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
   const [showThoughtProcess, setShowThoughtProcess] = useState(false);
+  const [thinkingSteps, setThinkingSteps] = useState([]);
+  const [displayedThinkingSteps, setDisplayedThinkingSteps] = useState([]);
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
+  const thinkingAnimationRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -23,6 +26,39 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
   useEffect(() => {
     initializeChat();
   }, []);
+
+  // Progressive thinking display when expanded
+  useEffect(() => {
+    if (showThoughtProcess && thinkingSteps.length > 0 && displayedThinkingSteps.length === 0) {
+      // Clear any existing animation
+      if (thinkingAnimationRef.current) {
+        clearTimeout(thinkingAnimationRef.current);
+      }
+
+      // Start progressive display
+      let currentIndex = 0;
+      const displayNextLine = () => {
+        if (currentIndex < thinkingSteps.length) {
+          setDisplayedThinkingSteps(prev => [...prev, thinkingSteps[currentIndex]]);
+          currentIndex++;
+          thinkingAnimationRef.current = setTimeout(displayNextLine, 300); // 300ms delay between lines
+        }
+      };
+      displayNextLine();
+    } else if (!showThoughtProcess) {
+      // Reset displayed steps when collapsed
+      setDisplayedThinkingSteps([]);
+      if (thinkingAnimationRef.current) {
+        clearTimeout(thinkingAnimationRef.current);
+      }
+    }
+
+    return () => {
+      if (thinkingAnimationRef.current) {
+        clearTimeout(thinkingAnimationRef.current);
+      }
+    };
+  }, [showThoughtProcess, thinkingSteps]);
 
   const initializeChat = async () => {
     try {
@@ -59,7 +95,19 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
     try {
       const response = await chatApi.continueChat(conversationId, userMessage.content);
 
-      // Add AI response to messages
+      // Store thinking steps for later display
+      if (response.thinking && response.thinking.length > 0) {
+        // Split thinking into lines for progressive display
+        const allThinkingText = response.thinking.join('\n\n');
+        const lines = allThinkingText.split('\n').filter(line => line.trim());
+
+        // Store all lines (will be displayed progressively when user clicks)
+        setThinkingSteps(lines);
+      } else {
+        setThinkingSteps([]);
+      }
+
+      // Add AI response to messages after thinking completes
       setMessages(prev => [...prev, response.ai_message]);
 
       // Check if conversation is complete
@@ -150,19 +198,19 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
                     <span>Thinking...</span>
                     <span className="expand-icon">{showThoughtProcess ? '▼' : '▶'}</span>
                   </div>
-                  {showThoughtProcess && (
+                  {showThoughtProcess && displayedThinkingSteps.length > 0 && (
+                    <div className="thought-process">
+                      {displayedThinkingSteps.map((step, idx) => (
+                        <div key={idx} className="thought-step dynamic">
+                          {step}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {showThoughtProcess && thinkingSteps.length > 0 && displayedThinkingSteps.length === 0 && (
                     <div className="thought-process">
                       <div className="thought-step">
-                        <strong>Step 1:</strong> Analyzing patient's response and medical context
-                      </div>
-                      <div className="thought-step">
-                        <strong>Step 2:</strong> Reviewing medical history and current symptoms
-                      </div>
-                      <div className="thought-step">
-                        <strong>Step 3:</strong> Considering cultural and personal factors
-                      </div>
-                      <div className="thought-step">
-                        <strong>Step 4:</strong> Formulating appropriate follow-up question
+                        Loading thought process...
                       </div>
                     </div>
                   )}

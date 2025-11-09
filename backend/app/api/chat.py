@@ -67,8 +67,8 @@ Remember: You're gathering comprehensive information for the clinician, not prov
     return system_context
 
 
-def get_ai_response(patient: Patient, ehr: EHRHistory, messages: list) -> tuple[str, bool]:
-    """Get AI response and determine if conversation is complete"""
+def get_ai_response(patient: Patient, ehr: EHRHistory, messages: list) -> tuple[str, bool, list]:
+    """Get AI response and determine if conversation is complete. Returns (message, is_complete, thinking_steps)"""
 
     try:
         client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
@@ -84,17 +84,29 @@ def get_ai_response(patient: Patient, ehr: EHRHistory, messages: list) -> tuple[
                 "content": msg["content"]
             })
 
-        # Get AI response with timeout
+        # Get AI response with Extended Thinking enabled
         response = client.messages.create(
-            model="claude-3-5-haiku-20241022",
-            max_tokens=500,
-            temperature=0.7,
-            timeout=30.0,  # Add 30 second timeout for chat
+            model="claude-3-7-sonnet-20250219",  # Extended Thinking requires Sonnet
+            max_tokens=4096,
+            temperature=1,  # Must be 1 when thinking is enabled
+            timeout=60.0,  # Increased timeout for thinking
+            thinking={
+                "type": "enabled",
+                "budget_tokens": 2048
+            },
             system=system_prompt,
             messages=api_messages
         )
 
-        ai_message = response.content[0].text
+        # Extract thinking blocks and text response
+        thinking_steps = []
+        ai_message = ""
+
+        for block in response.content:
+            if block.type == "thinking":
+                thinking_steps.append(block.thinking)
+            elif block.type == "text":
+                ai_message = block.text
 
         # Check if conversation is complete
         is_complete = "<<INTAKE_COMPLETE>>" in ai_message
@@ -102,7 +114,7 @@ def get_ai_response(patient: Patient, ehr: EHRHistory, messages: list) -> tuple[
         # Remove the completion marker from the message
         ai_message = ai_message.replace("<<INTAKE_COMPLETE>>", "").strip()
 
-        return ai_message, is_complete
+        return ai_message, is_complete, thinking_steps
 
     except Exception as e:
         print(f"AI conversation error: {str(e)}")
@@ -466,8 +478,8 @@ def continue_chat(
         "content": request.user_message
     })
 
-    # Get AI response
-    ai_message, is_complete = get_ai_response(patient, ehr, messages)
+    # Get AI response with thinking
+    ai_message, is_complete, thinking_steps = get_ai_response(patient, ehr, messages)
 
     # Add AI response to conversation
     messages.append({
@@ -496,5 +508,6 @@ def continue_chat(
         conversation_id=conversation.conversation_id,
         ai_message=ChatMessage(role="ai", content=ai_message),
         is_complete=is_complete,
-        briefing_id=briefing_id
+        briefing_id=briefing_id,
+        thinking=thinking_steps
     )

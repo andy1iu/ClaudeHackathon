@@ -231,6 +231,42 @@
   margin-right: 8px;
 }
 
+.thought-step.dynamic {
+  padding: 10px 0;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  animation: fadeInSlide 0.2s ease-out;
+}
+
+.thought-step.dynamic:last-child::after {
+  content: '▌';
+  color: var(--color-blue);
+  animation: blink 0.8s infinite;
+  margin-left: 2px;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .error-message {
   background: var(--color-error-light);
   color: #991b1b;

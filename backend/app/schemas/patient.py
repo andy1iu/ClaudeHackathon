@@ -173,3 +173,4 @@ class ChatContinueResponse(BaseModel):
     ai_message: ChatMessage
     is_complete: bool
     briefing_id: Optional[str] = None  # Populated when conversation completes
+    thinking: Optional[List[str]] = None  # Real-time thinking steps from Claude
