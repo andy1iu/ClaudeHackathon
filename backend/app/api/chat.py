@@ -195,19 +195,19 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 
 **PROVIDE:** Create SEPARATE equity_and_context_flags for EACH distinct dimension identified.
 
-**IMPORTANT: You MUST include the complete "recommendation" object with ALL 5 parts for EVERY equity flag. Do not leave it empty or omit it. This is CRITICAL.**
+**IMPORTANT: You MUST include the complete "recommendation" object with ALL 5 fields for EVERY equity flag. Do not leave it empty or omit it. This is CRITICAL.**
 
-**5-Part Structure for EVERY Flag:**
+**Required recommendation fields:**
 
-**(1) BACKGROUND & CONTEXT**: Comprehensive researched info about this specific group. Include: practices (native terms), statistics (actual numbers), historical context, traditional medicine details, cultural norms. Be specific to what patient mentioned.
+- **background**: Comprehensive researched info about this specific group. Include: practices (native terms), statistics (actual numbers), historical context, traditional medicine details, cultural norms.
 
-**(2) APPROACH**: 2-3 exact opening phrases the doctor can use. Acknowledge patient's specific preferences, use appropriate terminology, demonstrate respect.
+- **approach**: 2-3 exact opening phrases the doctor can use. Acknowledge patient's specific preferences, use appropriate terminology, demonstrate respect.
 
-**(3) EXPLORE**: 4-6 specific questions with [context about why it matters and expected answers]. Use appropriate terminology, show respect.
+- **explore**: Array of 4-6 specific questions with [context about why it matters and expected answers]. Use appropriate terminology, show respect.
 
-**(4) INTEGRATE**: 5-8 concrete actions: scheduling accommodations, medication review, traditional medicine integration, validated tools, bias-interruption techniques, resources.
+- **integrate**: Array of 5-8 concrete actions: scheduling accommodations, medication review, traditional medicine integration, validated tools, bias-interruption techniques, resources.
 
-**(5) AVOID**: 4-6 specific mistakes/biases: stereotypes, scheduling errors, medication errors, communication mistakes, documented biases.
+- **avoid**: Array of 4-6 specific mistakes/biases: stereotypes, scheduling errors, medication errors, communication mistakes, documented biases.
 
 **Quick Examples (DO NOT copy - research YOUR patient's actual context):**
 - Muslim + Ramadan → Research: Fajr/Iftar times, halal (no pork/alcohol in meds), modesty preferences
@@ -238,37 +238,26 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
       "flag": "Brief title of the equity-related insight (e.g., 'Buddhist Patient - Spiritual and Cultural Considerations').",
       "reasoning": "Explain WHY this is relevant for this specific patient. What did they mention in the conversation? What disparities or considerations apply?",
       "recommendation": {{
-        "(1) BACKGROUND & CONTEXT": "Comprehensive researched information about this specific cultural/religious/demographic group based on what the patient mentioned. Include: specific practices with native terms, statistics with actual numbers, historical context, traditional medicine details, cultural norms. Be thorough and specific, not generic.",
-        
-        "(2) APPROACH": "Exact phrases the doctor can use to open the conversation respectfully. Should acknowledge patient's specific preferences mentioned, use appropriate terminology, demonstrate respect and cultural humility. Provide 2-3 concrete opening statements.",
-        
-        "(3) EXPLORE": [
+        "background": "Comprehensive researched information about this specific cultural/religious/demographic group based on what the patient mentioned. Include: specific practices with native terms, statistics with actual numbers, historical context, traditional medicine details, cultural norms. Be thorough and specific, not generic.",
+        "approach": "Exact phrases the doctor can use to open the conversation respectfully. Should acknowledge patient's specific preferences mentioned, use appropriate terminology, demonstrate respect and cultural humility. Provide 2-3 concrete opening statements.",
+        "explore": [
           "First specific question using appropriate terminology? [Why this matters based on research and what answers to expect]",
           "Second specific question? [Context and expected responses]",
           "Third specific question? [Context and expected responses]",
-          "Fourth specific question? [Context and expected responses]",
-          "Fifth specific question? [Context and expected responses]",
-          "Sixth specific question? [Context and expected responses]"
+          "Fourth specific question? [Context and expected responses]"
         ],
-        
-        "(4) INTEGRATE": [
+        "integrate": [
           "First concrete actionable step specific to this patient's context",
           "Second concrete action",
           "Third concrete action",
           "Fourth concrete action",
-          "Fifth concrete action",
-          "Sixth concrete action",
-          "Seventh concrete action",
-          "Eighth concrete action if applicable"
+          "Fifth concrete action"
         ],
-        
-        "(5) AVOID": [
+        "avoid": [
           "First specific mistake or bias relevant to this group with example",
           "Second specific mistake",
           "Third specific mistake",
-          "Fourth specific mistake",
-          "Fifth specific mistake",
-          "Sixth specific mistake if applicable"
+          "Fourth specific mistake"
         ]
       }}
     }}
@@ -291,55 +280,49 @@ Analyze the data and create a structured clinical briefing. Provide output as a 
 **CRITICAL:**
 1. **IDENTIFY** - Read patient's empowerment question response completely. Capture ALL dimensions mentioned (don't collapse).
 2. **RESEARCH** - For EACH dimension, provide specific facts/statistics/practices (not generic statements).
-3. **PROVIDE** - Create SEPARATE flag for each dimension with full 5-part structure.
-4. **Multiple Dimensions = Multiple Flags** - Don't combine.
-5. **COMPLETE RECOMMENDATION OBJECT** - Every equity_and_context_flag MUST have a full "recommendation" object with all 5 parts: (1) BACKGROUND & CONTEXT, (2) APPROACH, (3) EXPLORE, (4) INTEGRATE, (5) AVOID. Never leave recommendation empty or null.
-6. **Output ONLY valid JSON** - No additional text.
+3. **PROVIDE** - Create SEPARATE flag for each dimension with complete recommendation object.
+4. **COMPLETE RECOMMENDATION OBJECT** - Every equity_and_context_flag MUST have a full "recommendation" object with all 5 fields: background, approach, explore, integrate, avoid. Never leave recommendation empty or null.
+5. **Output ONLY valid JSON** - No additional text, no markdown formatting.
 
-**EXAMPLE of required equity flag structure (use this format):**
+**EXAMPLE TEMPLATE (adapt this structure to the patient's ACTUAL context from their response):**
 {{
-  "type": "Cultural Context",
-  "flag": "Example Title",
-  "reasoning": "Why this matters for this patient...",
+  "type": "Cultural Context" | "Bias Interruption" | "Population Health",
+  "flag": "[Specific Identity/Context] - [Brief Description]",
+  "reasoning": "Patient mentioned [specific thing they said]. This is relevant because [specific disparities, considerations, or needs for THIS group].",
   "recommendation": {{
-    "(1) BACKGROUND & CONTEXT": "Detailed background information here...",
-    "(2) APPROACH": "Specific opening phrases: 1) ... 2) ... 3) ...",
-    "(3) EXPLORE": [
-      "First question? [Why it matters and expected answer]",
-      "Second question? [Context]",
-      "Third question? [Context]",
-      "Fourth question? [Context]",
-      "Fifth question? [Context]",
-      "Sixth question? [Context]"
+    "background": "Detailed research about THIS specific group the patient mentioned. Include: relevant statistics with numbers, cultural practices with native terms, historical context, health disparities data, traditional approaches. Must be specific to what the patient actually said, not generic.",
+    "approach": "Concrete opening phrases tailored to THIS patient: 1) [First phrase acknowledging their specific identity/concern] 2) [Second phrase showing cultural competence] 3) [Third phrase inviting discussion of their specific needs]",
+    "explore": [
+      "Specific question relevant to THIS identity/context? [Why this matters for THIS group and what to expect]",
+      "Another specific question for THIS patient? [Context for THIS group]",
+      "Question about specific practices/concerns for THIS group? [Relevant context]",
+      "Question about barriers/experiences relevant to THIS identity? [Why it matters]"
     ],
-    "(4) INTEGRATE": [
-      "First action",
-      "Second action",
-      "Third action",
-      "Fourth action",
-      "Fifth action",
-      "Sixth action",
-      "Seventh action",
-      "Eighth action"
+    "integrate": [
+      "Concrete action specific to THIS patient's context and condition",
+      "Specific accommodation or consideration for THIS group",
+      "Medication/treatment adjustment relevant to THIS identity",
+      "Resource or tool validated for THIS population",
+      "Scheduling or care delivery modification for THIS context"
     ],
-    "(5) AVOID": [
-      "First mistake to avoid",
-      "Second mistake",
-      "Third mistake",
-      "Fourth mistake",
-      "Fifth mistake",
-      "Sixth mistake"
+    "avoid": [
+      "Specific stereotype or assumption about THIS group to avoid",
+      "Common mistake when treating THIS population",
+      "Documented bias relevant to THIS identity and presenting condition",
+      "Communication error specific to THIS cultural/demographic context"
     ]
   }}
-}}"""
+}}
+
+Remember: Replace ALL bracketed placeholders with research-based content specific to what the patient actually mentioned. Do NOT use generic statements."""
 
     try:
         print(f"Starting briefing synthesis for patient {patient.patient_id}...")
         client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
 
         message = client.messages.create(
-            model="claude-3-5-haiku-20241022",
-            max_tokens=16000,  # Increased from 8000 to allow for detailed equity recommendations
+            model="claude-3-7-sonnet-20250219",  # Using Sonnet for comprehensive synthesis
+            max_tokens=8192,
             temperature=0.3,
             timeout=120.0,  # Increased to 120 second timeout for complex synthesis
             messages=[{"role": "user", "content": synthesis_prompt}]
