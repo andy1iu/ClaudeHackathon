@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Union
 from datetime import date, datetime
 
 
@@ -101,6 +101,22 @@ class KeyInsightFlag(BaseModel):
     type: str
     flag: str
     reasoning: str
+    severity: Optional[str] = None  # "Low" | "Medium" | "High"
+
+
+class RecommendationDetail(BaseModel):
+    background_context: Optional[str] = None
+    approach: Optional[str] = None
+    explore_questions: Optional[List[str]] = None
+    integrate_actions: Optional[List[str]] = None
+    avoid: Optional[List[str]] = None
+
+
+class EquityContextFlag(BaseModel):
+    type: str  # "Bias Interruption" | "Population Health" | "Cultural Context"
+    flag: str
+    reasoning: str
+    recommendation: Optional[Union[str, RecommendationDetail]] = None
 
 
 class ReportedSymptom(BaseModel):
@@ -116,6 +132,7 @@ class ClinicalBriefingBase(BaseModel):
     created_at: datetime
     ai_summary: str
     key_insights_flags: List[KeyInsightFlag]
+    equity_and_context_flags: Optional[List[EquityContextFlag]] = None
     reported_symptoms_structured: List[ReportedSymptom]
     relevant_history_surfaced: List[str]
 

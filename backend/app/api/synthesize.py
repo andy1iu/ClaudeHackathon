@@ -165,6 +165,7 @@ def synthesize_clinical_briefing(
         created_at=datetime.utcnow(),
         ai_summary=briefing_data["ai_summary"],
         key_insights_flags=briefing_data["key_insights_flags"],
+        equity_and_context_flags=briefing_data.get("equity_and_context_flags", []),
         reported_symptoms_structured=briefing_data["reported_symptoms_structured"],
         relevant_history_surfaced=briefing_data["relevant_history_surfaced"]
     )

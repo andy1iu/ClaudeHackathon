@@ -86,6 +86,7 @@ class ClinicalBriefing(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     ai_summary = Column(String, nullable=False)
     key_insights_flags = Column(JSON, nullable=False)
+    equity_and_context_flags = Column(JSON, nullable=True)  # New field for health equity insights
     reported_symptoms_structured = Column(JSON, nullable=False)
     relevant_history_surfaced = Column(JSON, nullable=False)
 

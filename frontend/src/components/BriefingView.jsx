@@ -31,9 +31,35 @@ const BriefingView = ({ patient, briefing, onClose }) => {
         return <span className="icon-shape icon-diamond" style={{ width: '12px', height: '12px' }}></span>;
       case 'opportunity':
         return <span className="icon-shape icon-circle" style={{ width: '12px', height: '12px' }}></span>;
+      case 'medication side effect':
+      case 'condition progression':
+      case 'treatment efficacy':
+        return <span className="icon-shape" style={{ width: '12px', height: '12px', border: '2px solid currentColor', borderRadius: '50%' }}></span>;
       default:
         return <span className="icon-shape icon-square" style={{ width: '12px', height: '12px' }}></span>;
     }
+  };
+
+  const getSeverityBadge = (severity) => {
+    if (!severity) return null;
+    const colors = {
+      'Low': '#10b981',
+      'Medium': '#f59e0b',
+      'High': '#ef4444'
+    };
+    return (
+      <span style={{
+        backgroundColor: colors[severity] || '#6b7280',
+        color: 'white',
+        padding: '2px 8px',
+        borderRadius: '4px',
+        fontSize: '11px',
+        fontWeight: '600',
+        marginLeft: '8px'
+      }}>
+        {severity}
+      </span>
+    );
   };
 
   return (
@@ -68,12 +94,13 @@ const BriefingView = ({ patient, briefing, onClose }) => {
               briefing.key_insights_flags.map((insight, index) => (
                 <div
                   key={index}
-                  className={`insight-card ${insight.type.toLowerCase()}`}
+                  className={`insight-card ${insight.type.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="insight-header">
-                    <span className={`insight-type ${insight.type.toLowerCase()}`}>
+                    <span className={`insight-type ${insight.type.toLowerCase().replace(/\s+/g, '-')}`}>
                       {getInsightIcon(insight.type)}
                       {insight.type}
+                      {getSeverityBadge(insight.severity)}
                     </span>
                     <span className="insight-flag">{insight.flag}</span>
                   </div>
@@ -84,6 +111,106 @@ const BriefingView = ({ patient, briefing, onClose }) => {
               <p>No key insights flagged.</p>
             )}
           </div>
+
+          {/* Health Equity & Context Section */}
+          {briefing.equity_and_context_flags && briefing.equity_and_context_flags.length > 0 && (
+            <div className="briefing-section equity-section">
+              <h4 style={{ color: '#8b5cf6' }}>
+                <span className="icon-shape" style={{ 
+                  display: 'inline-block', 
+                  marginRight: '8px', 
+                  verticalAlign: 'middle',
+                  width: '12px',
+                  height: '12px',
+                  backgroundColor: '#8b5cf6',
+                  borderRadius: '50%'
+                }}></span>
+                Health Equity & Patient Context
+              </h4>
+              {briefing.equity_and_context_flags.map((flag, index) => (
+                <div
+                  key={index}
+                  className="insight-card equity-flag"
+                  style={{ borderLeftColor: '#8b5cf6' }}
+                >
+                  <div className="insight-header">
+                    <span className="insight-type" style={{ color: '#8b5cf6' }}>
+                      {flag.type}
+                    </span>
+                    <span className="insight-flag">{flag.flag}</span>
+                  </div>
+                  <div className="insight-reasoning">{flag.reasoning}</div>
+                  {flag.recommendation && (
+                    <div className="equity-recommendation" style={{
+                      marginTop: '12px',
+                      padding: '16px',
+                      backgroundColor: '#f3e8ff',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      lineHeight: '1.6'
+                    }}>
+                      <strong style={{ color: '#7c3aed', fontSize: '15px', display: 'block', marginBottom: '8px' }}>
+                        💡 Actionable Recommendation
+                      </strong>
+                      {typeof flag.recommendation === 'string' ? (
+                        <div style={{ 
+                          whiteSpace: 'pre-wrap',
+                          color: '#4c1d95'
+                        }}>
+                          {flag.recommendation}
+                        </div>
+                      ) : (
+                        <div style={{ color: '#4c1d95' }}>
+                          {flag.recommendation.background_context && (
+                            <div style={{ marginBottom: '12px' }}>
+                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Background Context:</strong>
+                              {flag.recommendation.background_context}
+                            </div>
+                          )}
+                          {flag.recommendation.approach && (
+                            <div style={{ marginBottom: '12px' }}>
+                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Approach:</strong>
+                              {flag.recommendation.approach}
+                            </div>
+                          )}
+                          {flag.recommendation.explore_questions && flag.recommendation.explore_questions.length > 0 && (
+                            <div style={{ marginBottom: '12px' }}>
+                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Questions to Explore:</strong>
+                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                                {flag.recommendation.explore_questions.map((question, qIdx) => (
+                                  <li key={qIdx} style={{ marginBottom: '4px' }}>{question}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {flag.recommendation.integrate_actions && flag.recommendation.integrate_actions.length > 0 && (
+                            <div style={{ marginBottom: '12px' }}>
+                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Actions to Integrate:</strong>
+                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                                {flag.recommendation.integrate_actions.map((action, aIdx) => (
+                                  <li key={aIdx} style={{ marginBottom: '4px' }}>{action}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {flag.recommendation.avoid && flag.recommendation.avoid.length > 0 && (
+                            <div>
+                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>What to Avoid:</strong>
+                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                                {flag.recommendation.avoid.map((item, avIdx) => (
+                                  <li key={avIdx} style={{ marginBottom: '4px' }}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Reported Symptoms Section */}
           <div className="briefing-section">
