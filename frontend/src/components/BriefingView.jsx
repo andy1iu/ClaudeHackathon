@@ -161,48 +161,60 @@ const BriefingView = ({ patient, briefing, onClose }) => {
                         </div>
                       ) : (
                         <div style={{ color: '#4c1d95' }}>
-                          {flag.recommendation.background_context && (
-                            <div style={{ marginBottom: '12px' }}>
-                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Background Context:</strong>
-                              {flag.recommendation.background_context}
-                            </div>
-                          )}
-                          {flag.recommendation.approach && (
-                            <div style={{ marginBottom: '12px' }}>
-                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Approach:</strong>
-                              {flag.recommendation.approach}
-                            </div>
-                          )}
-                          {flag.recommendation.explore_questions && flag.recommendation.explore_questions.length > 0 && (
-                            <div style={{ marginBottom: '12px' }}>
-                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Questions to Explore:</strong>
-                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
-                                {flag.recommendation.explore_questions.map((question, qIdx) => (
-                                  <li key={qIdx} style={{ marginBottom: '4px' }}>{question}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {flag.recommendation.integrate_actions && flag.recommendation.integrate_actions.length > 0 && (
-                            <div style={{ marginBottom: '12px' }}>
-                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>Actions to Integrate:</strong>
-                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
-                                {flag.recommendation.integrate_actions.map((action, aIdx) => (
-                                  <li key={aIdx} style={{ marginBottom: '4px' }}>{action}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {flag.recommendation.avoid && flag.recommendation.avoid.length > 0 && (
-                            <div>
-                              <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>What to Avoid:</strong>
-                              <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
-                                {flag.recommendation.avoid.map((item, avIdx) => (
-                                  <li key={avIdx} style={{ marginBottom: '4px' }}>{item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
+                          {Object.entries(flag.recommendation).map(([key, value], idx) => {
+                            // Clean up the key for display
+                            const displayKey = key.replace(/^\(\d+\)\s*/, '').replace(/_/g, ' ');
+                            
+                            // Handle different value types
+                            if (typeof value === 'string') {
+                              return (
+                                <div key={idx} style={{ marginBottom: '12px' }}>
+                                  <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>
+                                    {displayKey}:
+                                  </strong>
+                                  <div style={{ whiteSpace: 'pre-wrap' }}>{value}</div>
+                                </div>
+                              );
+                            } else if (Array.isArray(value)) {
+                              return (
+                                <div key={idx} style={{ marginBottom: '12px' }}>
+                                  <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>
+                                    {displayKey}:
+                                  </strong>
+                                  <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                                    {value.map((item, itemIdx) => (
+                                      <li key={itemIdx} style={{ marginBottom: '4px' }}>{item}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              );
+                            } else if (typeof value === 'object' && value !== null) {
+                              return (
+                                <div key={idx} style={{ marginBottom: '12px' }}>
+                                  <strong style={{ display: 'block', marginBottom: '4px', color: '#7c3aed' }}>
+                                    {displayKey}:
+                                  </strong>
+                                  <div style={{ marginLeft: '12px' }}>
+                                    {Object.entries(value).map(([subKey, subValue], subIdx) => (
+                                      <div key={subIdx} style={{ marginBottom: '8px' }}>
+                                        <strong style={{ color: '#7c3aed', fontSize: '13px' }}>{subKey}:</strong>
+                                        {Array.isArray(subValue) ? (
+                                          <ul style={{ marginLeft: '20px', marginTop: '4px' }}>
+                                            {subValue.map((item, itemIdx) => (
+                                              <li key={itemIdx} style={{ marginBottom: '2px' }}>{item}</li>
+                                            ))}
+                                          </ul>
+                                        ) : (
+                                          <div style={{ marginLeft: '12px' }}>{String(subValue)}</div>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            }
+                            return null;
+                          })}
                         </div>
                       )}
                     </div>

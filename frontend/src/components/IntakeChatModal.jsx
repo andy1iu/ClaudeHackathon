@@ -73,7 +73,14 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
       setError(null);
     } catch (err) {
       console.error('Failed to send message:', err);
-      setError('Failed to send message. Please try again.');
+      console.error('Error details:', err.response?.data);
+      
+      // Show more detailed error message
+      const errorMessage = err.response?.data?.detail || err.message || 'Failed to send message. Please try again.';
+      setError(errorMessage);
+      
+      // Remove the user message from UI since it failed
+      setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
     }
