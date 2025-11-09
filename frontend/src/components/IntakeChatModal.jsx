@@ -8,6 +8,7 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
   const [conversationId, setConversationId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
+  const [showThoughtProcess, setShowThoughtProcess] = useState(false);
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
 
@@ -63,7 +64,14 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
 
       // Check if conversation is complete
       if (response.is_complete) {
-        // Wait a moment for user to read final message, then close
+        // Show "Generating briefing..." message
+        setMessages(prev => [...prev, {
+          role: 'ai',
+          content: 'Thank you! I\'m now generating your clinical briefing. This will take a moment...',
+          isProcessing: true
+        }]);
+
+        // Wait a moment, then close
         setTimeout(() => {
           onComplete(response.briefing_id);
           onClose();
@@ -119,18 +127,45 @@ function IntakeChatModal({ patient, onClose, onComplete }) {
                   key={index}
                   className={`message ${message.role === 'user' ? 'user-message' : 'ai-message'}`}
                 >
-                  <div className="message-content">
-                    {message.content}
+                  <div className={`message-content ${message.isProcessing ? 'processing-message' : ''}`}>
+                    {message.isProcessing ? (
+                      <div className="processing-indicator">
+                        <div className="processing-spinner"></div>
+                        <span>{message.content}</span>
+                      </div>
+                    ) : (
+                      message.content
+                    )}
                   </div>
                 </div>
               ))}
               {isLoading && (
                 <div className="message ai-message">
-                  <div className="message-content typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                  <div
+                    className="message-content thinking-indicator clickable"
+                    onClick={() => setShowThoughtProcess(!showThoughtProcess)}
+                    title="Click to view thought process"
+                  >
+                    <div className="thinking-spinner"></div>
+                    <span>Thinking...</span>
+                    <span className="expand-icon">{showThoughtProcess ? '▼' : '▶'}</span>
                   </div>
+                  {showThoughtProcess && (
+                    <div className="thought-process">
+                      <div className="thought-step">
+                        <strong>Step 1:</strong> Analyzing patient's response and medical context
+                      </div>
+                      <div className="thought-step">
+                        <strong>Step 2:</strong> Reviewing medical history and current symptoms
+                      </div>
+                      <div className="thought-step">
+                        <strong>Step 3:</strong> Considering cultural and personal factors
+                      </div>
+                      <div className="thought-step">
+                        <strong>Step 4:</strong> Formulating appropriate follow-up question
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
               <div ref={messagesEndRef} />
