@@ -175,7 +175,18 @@ Follow these steps in your reasoning, then provide the output as a SINGLE, VALID
 - **Condition Progression:** Do the symptoms suggest a worsening of a known chronic condition?
 - **Treatment Gaps:** Is the patient reporting issues that suggest their current treatment is not fully effective?
 
-**Step 3. Health Equity Analysis:** Based on the patient's race/ethnicity, gender, and narrative, proactively consider known health disparities and inequities:
+**Step 3. Health Equity Analysis:** Based on the patient's race/ethnicity, gender, and narrative, proactively consider known health disparities and inequities.
+
+**CRITICAL: Create SEPARATE equity_and_context_flags for EACH distinct dimension of patient identity/context that was mentioned:**
+- If patient mentions religious/spiritual identity → CREATE A FLAG for that
+- If patient mentions sexual orientation/gender identity → CREATE A SEPARATE FLAG for that  
+- If patient mentions past discrimination → CREATE A FLAG for that
+- If patient mentions cultural practices → CREATE A FLAG for that
+- If patient's race/ethnicity has documented disparities relevant to their presenting symptoms → CREATE A FLAG for that
+
+**DO NOT collapse multiple identity dimensions into a single flag.** Each significant aspect deserves its own detailed analysis and recommendations.
+
+Consider these dimensions independently:
 
 - **Race-Based Health Disparities:** What are documented health inequities for this patient's demographic? Examples:
   - Black patients: Pain undertreatment (22% less likely to receive pain medication), maternal mortality (3-4x higher than white women), cardiovascular disease disparities, higher rates of certain cancers
@@ -306,6 +317,49 @@ Apply framework by researching:
 
 **The key: IDENTIFY → RESEARCH → PROVIDE SPECIFICS for the actual patient's context. Don't use templates.**
 
+### INTERSECTIONALITY: CREATING MULTIPLE FLAGS FOR MULTIPLE IDENTITIES
+
+**CRITICAL RULE:** When a patient mentions MULTIPLE aspects of their identity (e.g., "I'm Buddhist and I'm gay and had a bad experience"), you MUST create SEPARATE equity_and_context_flags for EACH distinct dimension:
+
+**Example: Patient says "I'm Buddhist and had a bad experience with my doctor because I'm gay"**
+
+This patient mentioned TWO distinct identity dimensions, so create TWO separate flags:
+
+FLAG 1 - Religious/Spiritual Identity:
+{{
+  "type": "Cultural Context",
+  "flag": "Buddhist Patient - Spiritual and Cultural Considerations",
+  "reasoning": "Patient identifies as Buddhist, which may involve specific healthcare preferences and practices that should be integrated into care.",
+  "recommendation": {{
+    "(1) BACKGROUND & CONTEXT": {{ ... research Buddhist practices, meditation, dietary preferences, end-of-life care, traditional medicine ... }},
+    "(2) APPROACH": "... culturally sensitive opening about Buddhist practices ...",
+    "(3) EXPLORE": [ ... questions about Buddhist practices and preferences ... ],
+    "(4) INTEGRATE": [ ... specific actions for Buddhist patients ... ],
+    "(5) AVOID": [ ... mistakes to avoid with Buddhist patients ... ]
+  }}
+}}
+
+FLAG 2 - LGBTQ+ Identity + Healthcare Discrimination:
+{{
+  "type": "Bias Interruption",
+  "flag": "LGBTQ+ Patient with Past Healthcare Discrimination",
+  "reasoning": "Patient explicitly stated previous negative healthcare experience related to sexual orientation, indicating medical mistrust and need for affirming care.",
+  "recommendation": {{
+    "(1) BACKGROUND & CONTEXT": {{ ... research LGBTQ+ healthcare disparities, discrimination patterns ... }},
+    "(2) APPROACH": "... affirming opening acknowledging past harm ...",
+    "(3) EXPLORE": [ ... questions about LGBTQ+ healthcare experiences ... ],
+    "(4) INTEGRATE": [ ... specific LGBTQ+ affirming actions ... ],
+    "(5) AVOID": [ ... heteronormative assumptions, invasive questions ... ]
+  }}
+}}
+
+**DO NOT combine these into one flag.** Each dimension deserves detailed, specific recommendations.
+
+**Other Examples of When to Create Multiple Flags:**
+- Black + female + pregnant = Consider separate flags for (1) race-based maternal mortality disparities AND (2) gender-based pain dismissal
+- Muslim + Arabic speaker = Consider separate flags for (1) Islamic religious practices AND (2) language/interpretation needs
+- Indigenous + diabetes + rural location = Consider separate flags for (1) Indigenous health disparities AND (2) structural barriers (rural access, IHS underfunding)
+
 ### REQUIRED JSON OUTPUT SCHEMA
 
 {{
@@ -325,7 +379,11 @@ Apply framework by researching:
       "type": "Bias Interruption" | "Population Health" | "Cultural Context",
       "flag": "Brief title of the equity-related insight (e.g., 'Risk of underestimating pain').",
       "reasoning": "Explain WHY this is relevant for this specific patient demographic, based on established health equity principles. Include relevant statistics or research if applicable to this group.",
-      "recommendation": "This should be a DETAILED INFORMATION BOX teaching the doctor about this specific cultural/religious/demographic group and how to provide excellent care. Structure it as:
+      "recommendation": "This should be a DETAILED INFORMATION BOX teaching the doctor about this specific cultural/religious/demographic group and how to provide excellent care.
+      
+      **CRITICAL: Create a SEPARATE flag entry for EACH distinct dimension of identity the patient mentioned. If they mentioned being Buddhist AND being gay, create TWO separate flags with TWO separate recommendation boxes. DO NOT combine multiple identities into one flag.**
+      
+      Structure each recommendation as:
 
 (1) BACKGROUND & CONTEXT: DO THE RESEARCH and provide comprehensive, specific information about this patient's cultural/religious/demographic group based on what THEY mentioned in the conversation. DO NOT just say "ask about X" - instead, PROVIDE the actual researched information about X.
 
@@ -378,7 +436,12 @@ Apply framework by researching:
   ]
 }}
 
-CRITICAL: Respond with ONLY the JSON object. No additional text before or after."""
+CRITICAL REMINDERS:
+1. **Multiple Identity Dimensions = Multiple Flags:** If the patient mentioned being Buddhist AND gay AND had discrimination, create at least 2-3 separate equity_and_context_flags entries (one for religious identity, one for LGBTQ+ identity, one for past discrimination/medical mistrust). Each gets its own detailed recommendation box.
+
+2. **Capture ALL aspects of patient's answer:** When the patient answers the empowerment question, parse their ENTIRE response carefully. Don't focus on just one aspect - identify ALL dimensions of identity, experience, and context they shared.
+
+3. **Respond with ONLY the JSON object.** No additional text before or after."""
 
     try:
         client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
